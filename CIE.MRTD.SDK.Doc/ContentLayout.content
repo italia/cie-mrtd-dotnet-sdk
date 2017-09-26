@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Topics>
+  <Topic id="252ca59e-58be-4bcf-b7b8-a5dbf30d01c7" visible="True" isDefault="true" title="Carta d'Identità Elettronica - MRTD SDK">
+    <HelpKeywords>
+      <HelpKeyword index="K" term="Welcome" />
+    </HelpKeywords>
+  </Topic>
+  <Topic id="820b12e4-51d4-44b8-bf89-59be84ff3e25" visible="True" title="Versioni">
+    <HelpKeywords>
+      <HelpKeyword index="K" term="version, history" />
+    </HelpKeywords>
+    <Topic id="13f75121-b445-4caa-bb1a-010e699e696e" visible="True" title="Versione 1.0.0.0">
+      <HelpKeywords>
+        <HelpKeyword index="K" term="version, 1.0.0.0" />
+      </HelpKeywords>
+    </Topic>
+  </Topic>
+  <Topic id="48d766ab-d818-4f67-8195-c9916625ab28" visible="True" apiParentMode="InsertAfter" title="Machine Readable Travel Document">
+    <Topic id="316f22d9-a238-4e2a-94e8-8be18faea347" visible="True" title="Meccanismi di autenticazione" />
+    <Topic id="c8d4bf80-f642-4d2b-842e-088dd12b0476" visible="True" title="File di dati" />
+  </Topic>
+  <Topic id="564c6372-39c3-40b4-b73e-5d6a44394daf" visible="True" isSelected="true" title="Esempio di utilizzo" />
+</Topics>

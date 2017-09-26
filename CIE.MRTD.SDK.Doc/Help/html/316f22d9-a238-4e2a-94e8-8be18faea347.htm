@@ -1,0 +1,39 @@
+﻿<html><head><meta http-equiv="X-UA-Compatible" content="IE=edge" /><link rel="shortcut icon" href="../icons/favicon.ico" /><style type="text/css">.OH_CodeSnippetContainerTabLeftActive, .OH_CodeSnippetContainerTabLeft,.OH_CodeSnippetContainerTabLeftDisabled { }.OH_CodeSnippetContainerTabRightActive, .OH_CodeSnippetContainerTabRight,.OH_CodeSnippetContainerTabRightDisabled { }.OH_footer { }</style><link rel="stylesheet" type="text/css" href="../styles/branding.css" /><link rel="stylesheet" type="text/css" href="../styles/branding-it-IT.css" /><script type="text/javascript" src="../scripts/branding.js"> </script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Meccanismi di autenticazione</title><meta name="Language" content="it-it" /><meta name="Microsoft.Help.Id" content="316f22d9-a238-4e2a-94e8-8be18faea347" /><meta name="Description" content="Questa sezione descrive brevemente i meccanismi di autenticazione dei Machine Readable Travel Document (MRTD)" /><meta name="Microsoft.Help.ContentType" content="Concepts" /><meta name="BrandingAware" content="true" /></head><body onload="OnLoad('cs')"><input type="hidden" id="userDataCache" class="userDataStyle" /><div class="OH_outerDiv"><div class="OH_outerContent"><table class="TitleTable"><tr><td class="OH_tdLogoColumn"><img src="../icons/Help.png" /></td><td class="OH_tdTitleColumn">Meccanismi di autenticazione</td><td class="OH_tdRunningTitleColumn">Carta d'Identità Elettronica - MRTD SDK</td></tr></table><div id="mainSection"><div id="mainBody"><span class="introStyle"></span><div class="introduction"><p>Questa sezione descrive brevemente i meccanismi di autenticazione dei Machine Readable Travel Document (MRTD)</p></div><div class="OH_CollapsibleAreaRegion" id="Section1"><div class="OH_regiontitle">Contenuto</div><div class="OH_CollapsibleArea_HrDiv"><hr class="OH_CollapsibleArea_Hr" /></div></div><div class="OH_clear"> </div><p>Un MRTD è un documento leggibile tramite procedure automatizzate (<em>Machine Readable</em>)
+			che consente l'identificazione del titolare mediante dati i suoi dati personali, sia di natura anagrafica
+			(nome, cognome, codice fiscale) sia biometrica (foto, impronta digitale). Poiché il chip contiene dati estremamente
+			sensibili, l'accesso ad essi deve essere regolato ed autorizzato tramite protocolli che assicurino la disponibilità
+			di tali dati solo agli enti deputati al controllo e con l'autorizzazione del titolare.</p><p>Di seguito un elenco degli algoritmi utilizzati per proteggere i dati:</p><ul><li>BAC<p>
+          Il meccanismo di autenticazione <span class="term">BAC</span> (<em>Basic Access Control</em>) consiste in una mutua autenticazione
+          effettuata con una chiave simmetrica, conosciuta sia dal chip che dal terminale. Dopo aver effettuato l'autenticazione BAC
+          viene instaurato un canale cifrato, tramite il quale è possibile leggere tutti i <span class="term">Data Group</span> tranne
+          il DG3, contenente l'impronta digitale del titolare.</p><p>La chiave simmetrica con cui viene effettuata la mutua autenticazione viene derivata dall'MRZ, cioè le tre righe stampate
+          con font OCR-B sul retro del documento. Il titolare del documento deve dare il suo assenso alla lettura da parte del terminale
+          appoggiando il documento sullo scannner che acquisisce l'immagine del documento e applica l'OCR per leggere i caratteri dell'MRZ
+          e ricavare la chiave simmetrica.
+          </p></li><li>PACE<p>In alternativa al protocollo BAC, e come sua evoluzione, è possibile applicare il protocollo di autenticazione <span class="term">PACE</span>.
+			Tale protocollo ha lo stesso scopo del BAC (avere accesso a tutti i Data Group tranne il DG3), tuttavia utilizza degli
+			algoritmi crittografici più avanzati. Il protocollo consiste in una mutua autenticazione, in cui il segreto condiviso
+			può essere l'MRZ, come nel BAC, o il <span class="term">CAN</span>, un numero di 6 cifre stampato sul fronte del documento.
+			Il CAN può essere inserito dal titolare, che esprime in questo modo il suo assenso alla lettura. Non è richiesto in questo
+			modo l'uso di uno scanner e di un algoritmo di OCR.</p><div class="alert"><table><tr><th><img src="../icons/alert_note.gif" alt="Note" /> Note</th></tr><tr><td><p>La Carta d'Identità Elettronica supporta sia l'uso del BAC che di PACE. Altri MRTD potrebbero supportare solo uno dei due
+			algoritmi</p></td></tr></table></div></li><li>Passive Authentication<p>La <span class="term">Passive Authentication</span> consiste nel verificare che i dati contenuti nel documento siano stati
+			certificati da parte dell'autorità emittente del documento stesso, nel caso della Carta d'Identità Elettronica il Ministero 
+			dell'Interno, e non modificati successivamente. La Passive Authentication viene effettuata leggendo il file EF.SOD, che 
+			consiste in un PKCS#7 nel quale le impronte SHA-1 dei Data Group sono firmate tramite il certificato di 
+			<em>Document Signer</em> emesso dalla Certification Authority X.509 del Ministro dell'Interno, la CSCA 
+			(<em>Country Signing Certification Authority</em>). La Passive Authentication viene eseguita esternamente
+			al chip (verificando il contenuto dell'EF.SOD) quindi non dà accesso ad alcun Data Group
+			</p></li><li>Chip Authentication<p>La <span class="term">Chip Authentication</span> consiste nel verificare che un documento non sia stato clonato, riversando
+			tutte le informazioni contenute in esso in un nuovo chip MRTD. Il protocollo di Chip Authentication consiste in uno scambio
+			di chiavi Diffie-Hellman in cui la parte pubblica utilizzata dal chip viene firmata nel EF.SOD. La parte privata non può
+			essere esportata dal chip, quindi è impossibile clonare il documento senza modificare le informazioni firmate nell'EF.SOD.
+			La chip authentication non dà accesso ad alcun Data Group
+			</p></li><li>Terminal Authentication<p>La <span class="term">Terminal Authentication</span> consiste in un'autenticazione di tipo Challenge-Response asimmetrica,
+			effettuata con una chiave privata posseduta dal terminale associata ad un certificato Card Verifiable (CVCA) di Inspection
+			System, emesso da una apposita Certification Authority, la CVCA (<em>Country Verifying Certification Authority</em>).
+			La Terminal Authentication dà accesso al DG3 contente le immagini delle impronte digitali del titolare.
+			</p><div class="alert"><table><tr><th><img src="../icons/alert_note.gif" alt="Note" /> Note</th></tr><tr><td><p>
+          I certificati di Inspection System vengono rilasciati <strong>solo</strong> ad enti autorizzati ad accedere ai dati sensibili
+          degli utenti per motivi di sicurezza (e.g. Controlli di sicurezza agli imbarchi degli aeroporti). Non è possibile accedere a tali
+          dati ad utenti non espressamente autorizzati, nemmeno al titolare stesso.
+        </p></td></tr></table></div></li></ul></div></div></div></div><div id="OH_footer" class="OH_footer" /></body></html>

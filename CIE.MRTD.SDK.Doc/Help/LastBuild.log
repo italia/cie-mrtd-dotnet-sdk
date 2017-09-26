@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shfbBuild product="Sandcastle Help File Builder" version="2015.1.12.0" projectFile="C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\CIE.MRTD.SDK.Doc.shfbproj" started="26/09/2017 17:16:21">
+<buildStep step="Initializing">
+Finding tools...
+The Sandcastle tools are located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\&#39;
+Locating components in the following folder(s):
+   C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc
+Using presentation style &#39;VS2010&#39; located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010&#39;
+</buildStep>
+<buildStep step="ValidatingDocumentationSources">
+Validating and copying documentation source information
+Source: C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK\CIE.MRTD.SDK.csproj
+    Found project &#39;C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK\CIE.MRTD.SDK.csproj&#39;
+
+Parsing project files
+    Found assembly &#39;C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK\bin\Debug\CIE.MRTD.SDK.dll&#39;
+
+References to include (excluding framework assemblies):
+    None
+
+Copying XML comments files
+    C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK\bin\Debug\CIE.MRTD.SDK.XML -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\CIE.MRTD.SDK.XML
+</buildStep>
+<buildStep step="GenerateSharedContent">
+Generating shared content files (it-IT, Italian (Italy))...
+SHFB: Warning BE0003: Sandcastle shared content for the &#39;it-IT, Italian (Italy)&#39; language could not be found.  Using &#39;en-US, English (US)&#39; defaults.
+    Last step completed in 00:00:00.0193
+</buildStep>
+<buildStep step="GenerateApiFilter">
+Generating API filter for MRefBuilder...
+    Last step completed in 00:00:00.0010
+</buildStep>
+<buildStep step="GenerateReflectionInfo">
+Generating reflection information...
+[C:\Program Files (x86)\MSBuild\12.0\bin\MSBuild.exe]
+Compilazione avviata 26/09/2017 17:16:22.
+Progetto &quot;C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\GenerateRefInfo.proj&quot; sul nodo 1 (destinazioni predefinite).
+PrepareForBuild:
+  Creazione directory &quot;obj\Debug\&quot;.
+GenerateRefInfo:
+  MRefBuilder (v2015.1.12.0)
+  Copyright &#184; 2006-2015, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2014, Eric Woodruff, All Rights Reserved.
+  Loaded 1 assemblies for reflection and 1 dependency assemblies.
+  Wrote information on 3 namespaces, 21 types, and 286 members
+  Copia del file da &quot;reflection.org&quot; a &quot;reflection.all&quot;.
+  XslTransform (v2015.1.12.0)
+  Copyright &#184; 2006-2015, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2014, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\ProductionTransforms\MergeDuplicates.xsl&#39;.
+Compilazione progetto &quot;C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\GenerateRefInfo.proj&quot; (destinazioni predefinite) completata.
+
+Compilazione completata.
+
+Tempo trascorso 00:00:00.36
+    Last step completed in 00:00:00.5121
+</buildStep>
+<buildStep step="TransformReflectionInfo">
+Transforming reflection output...
+[C:\Program Files (x86)\MSBuild\12.0\bin\MSBuild.exe]
+Compilazione avviata 26/09/2017 17:16:23.
+Progetto &quot;C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\TransformManifest.proj&quot; sul nodo 1 (destinazioni predefinite).
+TransformManifest:
+  XslTransform (v2015.1.12.0)
+  Copyright &#184; 2006-2015, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2014, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\ProductionTransforms\ApplyVSDocModel.xsl&#39;.
+  Copia del file da &quot;reflection.xml&quot; a &quot;reflection.nofilenames&quot;.
+  XslTransform (v2015.1.12.0)
+  Copyright &#184; 2006-2015, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2014, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\ProductionTransforms\AddFilenames.xsl&#39;.
+  XslTransform (v2015.1.12.0)
+  Copyright &#184; 2006-2015, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2014, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\ProductionTransforms\ReflectionToManifest.xsl&#39;.
+Compilazione progetto &quot;C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\TransformManifest.proj&quot; (destinazioni predefinite) completata.
+
+Compilazione completata.
+
+Tempo trascorso 00:00:00.33
+    Last step completed in 00:00:00.4656
+</buildStep>
+<buildStep step="GenerateNamespaceSummaries">
+Generating namespace summary information...
+    Last step completed in 00:00:00.1174
+</buildStep>
+<buildStep step="CopyConceptualContent">
+Copying conceptual content...
+Copying standard token shared content file...
+Checking for other token files...
+Checking for code snippets files...
+Copying images and creating the media map file...
+Generating conceptual topic files
+    Parsing topic file &#39;C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Content\Welcome.aml&#39;
+    C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Content\Welcome.aml -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\ddueXml\252ca59e-58be-4bcf-b7b8-a5dbf30d01c7.xml
+    Parsing topic file &#39;C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Content\VersionHistory\VersionHistory.aml&#39;
+    C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Content\VersionHistory\VersionHistory.aml -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\ddueXml\820b12e4-51d4-44b8-bf89-59be84ff3e25.xml
+    Parsing topic file &#39;C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Content\VersionHistory\v1.0.0.0.aml&#39;
+    C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Content\VersionHistory\v1.0.0.0.aml -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\ddueXml\13f75121-b445-4caa-bb1a-010e699e696e.xml
+    Parsing topic file &#39;C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Content\MRTD\MRTD.aml&#39;
+    C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Content\MRTD\MRTD.aml -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\ddueXml\48d766ab-d818-4f67-8195-c9916625ab28.xml
+    Parsing topic file &#39;C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Content\MRTD\AuthMech.aml&#39;
+    C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Content\MRTD\AuthMech.aml -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\ddueXml\316f22d9-a238-4e2a-94e8-8be18faea347.xml
+    Parsing topic file &#39;C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Content\MRTD\DataGroup.aml&#39;
+    C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Content\MRTD\DataGroup.aml -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\ddueXml\c8d4bf80-f642-4d2b-842e-088dd12b0476.xml
+    Parsing topic file &#39;C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Content\MRTD\Sample.aml&#39;
+    C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Content\MRTD\Sample.aml -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\ddueXml\564c6372-39c3-40b4-b73e-5d6a44394daf.xml
+    Last step completed in 00:00:00.0665
+</buildStep>
+<buildStep step="CreateConceptualTopicConfigs">
+Creating conceptual topic configuration files...
+    Companion files
+    _ContentMetadata_.xml
+    ConceptualManifest.xml
+    Last step completed in 00:00:00.0000
+</buildStep>
+<buildStep step="CopyAdditionalContent">
+Copying additional content files...
+C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\icons\Help.png -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\Help.png
+    Last step completed in 00:00:00.0000
+</buildStep>
+<buildStep step="MergeTablesOfContents">
+Merging conceptual and additional tables of contents...
+    Last step completed in 00:00:00.0000
+</buildStep>
+<buildStep step="GenerateIntermediateTableOfContents">
+Generating intermediate table of contents file...
+[C:\Program Files (x86)\MSBuild\12.0\bin\MSBuild.exe]
+Compilazione avviata 26/09/2017 17:16:23.
+Progetto &quot;C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\GenerateIntermediateTOC.proj&quot; sul nodo 1 (destinazioni predefinite).
+GenerateIntermediateTOC:
+  XslTransform (v2015.1.12.0)
+  Copyright &#184; 2006-2015, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2014, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\ProductionTransforms\CreateVSToc.xsl&#39;.
+Compilazione progetto &quot;C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\GenerateIntermediateTOC.proj&quot; (destinazioni predefinite) completata.
+
+Compilazione completata.
+
+Tempo trascorso 00:00:00.08
+Generating conceptual content intermediate TOC file...
+    Last step completed in 00:00:00.2005
+</buildStep>
+<buildStep step="CreateBuildAssemblerConfigs">
+Creating Sandcastle configuration files...
+    sandcastle.config
+    conceptual.config
+    Last step completed in 00:00:00.1326
+</buildStep>
+<buildStep step="MergeCustomConfigs">
+Merging custom build component configurations
+C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\sandcastle.config
+C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\conceptual.config
+    Removing unused ExampleComponent.
+    Last step completed in 00:00:00.1332
+</buildStep>
+<buildStep step="BuildConceptualTopics">
+Building conceptual help topics...
+[C:\Program Files (x86)\MSBuild\12.0\bin\MSBuild.exe]
+Compilazione avviata 26/09/2017 17:16:24.
+Progetto &quot;C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\BuildConceptualTopics.proj&quot; sul nodo 1 (destinazioni predefinite).
+BuildConceptualTopics:
+  BuildAssembler (v2015.1.12.0)
+  Copyright &#184; 2006-2015, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2014, Eric Woodruff, All Rights Reserved.
+  Loading configuration...
+  Processing topics...
+  Processed 7 topic(s)
+  CopyFromIndexComponent: &quot;metadata&quot; in-memory cache entries used: 1 of 15.
+Compilazione progetto &quot;C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\BuildConceptualTopics.proj&quot; (destinazioni predefinite) completata.
+
+Compilazione completata.
+
+Tempo trascorso 00:00:03.41
+    Last step completed in 00:00:03.7669
+</buildStep>
+<buildStep step="BuildReferenceTopics">
+Building reference help topics...
+[C:\Program Files (x86)\MSBuild\12.0\bin\MSBuild.exe]
+Compilazione avviata 26/09/2017 17:16:27.
+Progetto &quot;C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\BuildReferenceTopics.proj&quot; sul nodo 1 (destinazioni predefinite).
+BuildReferenceTopics:
+  BuildAssembler (v2015.1.12.0)
+  Copyright &#184; 2006-2015, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2014, Eric Woodruff, All Rights Reserved.
+  Loading configuration...
+  Processing topics...
+BuildAssembler : warning : ResolveReferenceLinksComponent: [M:CIE.MRTD.SDK.EAC.EAC.TerminalAuthentication(System.Collections.Generic.List{CIE.MRTD.SDK.Crypto.CVCert},CIE.MRTD.SDK.Crypto.CVCert,CIE.MRTD.SDK.EAC.EAC.SignDelegate,CIE.MRTD.SDK.EAC.TABinding)] Unknown reference link target &#39;T:CIE.MRTD.SDK.Crypto.CVCert&#39;. [C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\BuildReferenceTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [M:CIE.MRTD.SDK.EAC.EAC.TerminalAuthentication(System.Collections.Generic.List{CIE.MRTD.SDK.Crypto.CVCert},CIE.MRTD.SDK.Crypto.CVCert,CIE.MRTD.SDK.EAC.EAC.SignDelegate,CIE.MRTD.SDK.EAC.TABinding)] Unknown reference link target &#39;T:CIE.MRTD.SDK.Crypto.CVCert&#39;. [C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\BuildReferenceTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:CIE.MRTD.SDK.PCSC.Apdu.ToString] Missing &lt;returns&gt; documentation [C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\BuildReferenceTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:CIE.MRTD.SDK.PCSC.SmartCard.IsCardInReader(System.String)] Missing &lt;returns&gt; documentation [C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\BuildReferenceTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:CIE.MRTD.SDK.Util.ASN1Tag.ParseLength(System.Byte[])] Missing &lt;returns&gt; documentation [C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\BuildReferenceTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:CIE.MRTD.SDK.Util.ASN1Tag.ParseLength(System.IO.Stream)] Missing &lt;returns&gt; documentation [C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\BuildReferenceTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:CIE.MRTD.SDK.Util.ASN1Tag.ToString] Missing &lt;summary&gt; documentation [C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\BuildReferenceTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:CIE.MRTD.SDK.Util.ASN1Tag.ToString] Missing &lt;returns&gt; documentation [C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\BuildReferenceTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:CIE.MRTD.SDK.Util.ByteArray.Clone] Missing &lt;returns&gt; documentation [C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\BuildReferenceTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:CIE.MRTD.SDK.Util.ByteArray.ToString] Missing &lt;returns&gt; documentation [C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\BuildReferenceTopics.proj]
+  Processed 210 topic(s)
+  10 warning(s)
+  CopyFromIndexComponent: &quot;reflection&quot; in-memory cache entries used: 7 of 15.
+  CopyFromIndexComponent: &quot;comments&quot; in-memory cache entries used: 3 of 30.
+Compilazione progetto &quot;C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\BuildReferenceTopics.proj&quot; (destinazioni predefinite) completata.
+
+Compilazione completata.
+
+Tempo trascorso 00:00:07.44
+    Last step completed in 00:00:07.5972
+</buildStep>
+<buildStep step="CombiningIntermediateTocFiles">
+Combining conceptual and API intermediate TOC files...
+
+Clearing any prior web output
+    Last step completed in 00:00:00.0790
+</buildStep>
+<buildStep step="ExtractingHtmlInfo">
+Extracting HTML info for HTML Help 1 and/or website...
+[C:\Program Files (x86)\MSBuild\12.0\bin\MSBuild.exe]
+Sandcastle Help File Builder, version 2015.1.12.0
+Copyright &#184; 2006-2015, Eric Woodruff, All Rights Reserved
+E-Mail: Eric@EWoodruff.us
+
+Using LCID &#39;1040&#39;, code page &#39;1252&#39;, encoding charset &#39;Windows-1252&#39;.
+
+Processing website files in C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website
+Processed 217 HTML files
+Sorting keywords and generating See Also indices
+Saving website keyword index to C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\WebKI.xml
+Saving website table of contents to C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\WebTOC.xml
+    Last step completed in 00:00:00.5058
+</buildStep>
+<buildStep step="CopyStandardHelpContent">
+Copying standard help content...
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\alert_caution.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\alert_caution.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\alert_note.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\alert_note.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\alert_security.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\alert_security.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\CFW.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\CFW.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\CodeExample.png -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\CodeExample.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\favicon.ico -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\favicon.ico
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\footer_slice.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\footer_slice.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\privclass.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\privclass.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\privdelegate.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\privdelegate.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\privenumeration.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\privenumeration.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\privevent.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\privevent.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\privextension.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\privextension.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\privfield.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\privfield.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\privinterface.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\privinterface.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\privmethod.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\privmethod.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\privproperty.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\privproperty.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\privstructure.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\privstructure.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\protclass.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\protclass.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\protdelegate.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\protdelegate.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\protenumeration.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\protenumeration.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\protevent.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\protevent.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\protextension.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\protextension.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\protfield.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\protfield.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\protinterface.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\protinterface.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\protmethod.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\protmethod.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\protoperator.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\protoperator.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\protproperty.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\protproperty.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\protstructure.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\protstructure.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\pubclass.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\pubclass.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\pubdelegate.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\pubdelegate.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\pubenumeration.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\pubenumeration.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\pubevent.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\pubevent.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\pubextension.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\pubextension.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\pubfield.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\pubfield.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\pubinterface.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\pubinterface.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\pubmethod.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\pubmethod.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\puboperator.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\puboperator.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\pubproperty.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\pubproperty.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\pubstructure.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\pubstructure.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\slMobile.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\slMobile.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\static.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\static.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\tabLeftBG.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\tabLeftBG.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\tabRightBG.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\tabRightBG.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\icons\xna.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\icons\xna.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\scripts\branding.js -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\scripts\branding.js
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\styles\branding-cs-CZ.css -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\styles\branding-cs-CZ.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\styles\branding-de-DE.css -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\styles\branding-de-DE.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\styles\branding-en-US.css -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\styles\branding-en-US.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\styles\branding-es-ES.css -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\styles\branding-es-ES.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\styles\branding-fr-FR.css -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\styles\branding-fr-FR.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\styles\branding-Help1.css -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\styles\branding-Help1.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\styles\branding-Help2.css -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\styles\branding-Help2.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\styles\branding-HelpViewer.css -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\styles\branding-HelpViewer.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\styles\branding-it-IT.css -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\styles\branding-it-IT.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\styles\branding-ja-JP.css -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\styles\branding-ja-JP.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\styles\branding-ko-KR.css -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\styles\branding-ko-KR.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\styles\branding-pl-PL.css -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\styles\branding-pl-PL.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\styles\branding-pt-BR.css -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\styles\branding-pt-BR.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\styles\branding-ru-RU.css -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\styles\branding-ru-RU.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\styles\branding-tr-TR.css -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\styles\branding-tr-TR.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\styles\branding-zh-CN.css -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\styles\branding-zh-CN.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\styles\branding-zh-TW.css -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\styles\branding-zh-TW.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\styles\branding.css -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\styles\branding.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\..\LegacyWeb\CloseSearch.png -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\CloseSearch.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\..\LegacyWeb\CollapseAll.png -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\CollapseAll.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\..\LegacyWeb\Collapsed.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\Collapsed.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\..\LegacyWeb\Expanded.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\Expanded.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\..\LegacyWeb\favicon.ico -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\favicon.ico
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\..\LegacyWeb\FillNode.aspx -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\FillNode.aspx
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\..\LegacyWeb\FillNode.php -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\FillNode.php
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\..\LegacyWeb\Index.aspx -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\Index.aspx
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\..\LegacyWeb\Index.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\Index.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\..\LegacyWeb\index.html -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\index.html
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\..\LegacyWeb\index.php -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\index.php
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\..\LegacyWeb\Item.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\Item.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\..\LegacyWeb\LoadIndexKeywords.aspx -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\LoadIndexKeywords.aspx
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\..\LegacyWeb\LoadIndexKeywords.php -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\LoadIndexKeywords.php
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\..\LegacyWeb\Search.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\Search.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\..\LegacyWeb\SearchHelp.aspx -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\SearchHelp.aspx
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\..\LegacyWeb\SearchHelp.inc.php -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\SearchHelp.inc.php
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\..\LegacyWeb\SearchHelp.php -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\SearchHelp.php
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\..\LegacyWeb\Splitter.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\Splitter.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\..\LegacyWeb\SyncTOC.gif -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\SyncTOC.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\..\LegacyWeb\TOC.css -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\TOC.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\..\LegacyWeb\TOC.js -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\TOC.js
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\..\LegacyWeb\Web.Config -&gt; C:\Progetti\CIE\Hackathon\SDK MRTD\Sorgente\CIE.MRTD.SDK.Doc\Help\Working\Output\Website\Web.Config
+    Last step completed in 00:00:00.3451
+</buildStep>
+<buildStep step="GenerateHelpFormatTableOfContents">
+Generating website table of contents file...
+    Last step completed in 00:00:00.0005
+</buildStep>
+<buildStep step="GenerateFullTextIndex">
+Generating full-text index for the website...
+
+    Last step completed in 00:00:00.8271
+</buildStep>
+<buildStep step="CopyingWebsiteFiles">
+Copying website files to output folder...
+
+Copied 100 files
+Copied 200 files
+Copied 300 files
+Copied 333 files for the website content
+    Last step completed in 00:00:00.3313
+</buildStep>
+<buildStep step="CleanIntermediates">
+Removing intermediate files...
+    Last step completed in 00:00:00.0748
+</buildStep>
+<buildStep step="Completed">
+
+Build completed successfully at 26/09/2017 17:16:37.  Total time: 00:00:15.7194
+
+</buildStep>
+</shfbBuild>
