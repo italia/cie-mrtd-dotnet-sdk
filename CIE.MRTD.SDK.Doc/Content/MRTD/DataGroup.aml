@@ -52,7 +52,7 @@
 		  </listItem>
 		  <listItem>
 	          <xlink:title xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xlink:titleEltType">DG14</xlink:title>
-			  <para>Il DG14 contiene la chiave pubblica e i parametri di dominio Diffie Hellman utilizzati in fase di Chip Authentication</para>
+			  <para>Il DG14 contiene la chiave pubblica e i parametri di dominio Diffie Hellman utilizzati in fase di <link xlink:href="316f22d9-a238-4e2a-94e8-8be18faea347">Chip Authentication</link></para>
 		  </listItem>
 		</list>
 
@@ -79,6 +79,20 @@
 		 </content>
     </section>
 
+    <section>
+      <title>Riferimenti</title>
+      <content>
+        <list>          
+          <listItem><externalLink>
+<linkText>ICAO 9303 - Part 10: Logical Data Structure (LDS) for Storage of Biometrics and Other Data in the Contactless Integrated Circuit (IC)</linkText>
+<linkUri>https://www.icao.int/publications/Documents/9303_p10_cons_en.pdf</linkUri>
+<linkTarget>_blank</linkTarget>
+</externalLink>
+          </listItem>
+          
+        </list>
+      </content>
+    </section>
     <relatedTopics>
     </relatedTopics>
   </developerConceptualDocument>

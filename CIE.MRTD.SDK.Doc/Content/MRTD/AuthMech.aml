@@ -84,7 +84,33 @@
 		</list>
 	  </content>
     </section>
-
+    <section>
+      <title>Riferimenti</title>
+      <content>
+        <list>
+          <listItem><externalLink>
+<linkText>BSI TR-03110-1 Advanced Security Mechanisms for Machine Readable Travel Documents – Part 1 - Version 2.10</linkText>
+<linkUri>https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/TechGuidelines/TR03110/BSI_TR-03110_Part-1_V2-1.pdf?__blob=publicationFile&amp;v=1</linkUri>
+<linkTarget>_blank</linkTarget>
+</externalLink>
+          </listItem>
+          <listItem><externalLink>
+<linkText>BSI TR-03110-3 Advanced Security Mechanisms for Machine Readable Travel Documents – Part 3 - Version 2.10</linkText>
+<linkUri>https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/TechGuidelines/TR03110/BSI_TR-03110_Part-3_V2-1.pdf?__blob=publicationFile&amp;v=1</linkUri>
+<linkTarget>_blank</linkTarget>
+</externalLink>
+          </listItem>
+          
+          <listItem><externalLink>
+<linkText>ICAO 9303 - Part 11: Security Mechanisms for MRTDs</linkText>
+<linkUri>https://www.icao.int/publications/Documents/9303_p11_cons_en.pdf</linkUri>
+<linkTarget>_blank</linkTarget>
+</externalLink>
+          </listItem>
+          
+        </list>
+      </content>
+    </section>
     <relatedTopics>
     </relatedTopics>
   </developerConceptualDocument>
