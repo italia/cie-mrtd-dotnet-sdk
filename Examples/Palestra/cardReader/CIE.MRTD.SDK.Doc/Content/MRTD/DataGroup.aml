@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="c8d4bf80-f642-4d2b-842e-088dd12b0476" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+
+    <introduction>
+      <para>Questa sezione descrive brevemente i Data Group dei Machine Readable Travel Document (MRTD)</para>
+    </introduction>
+
+
+    <section address="Section1">		
+    <title>Contenuto</title>
+     <content>
+     	<para>
+     	I dati contenuti negli MRTD sono organizzati in file binari chiamati <legacyBold>Data Group</legacyBold>, ognuni dei quali
+     	ha una struttura e un contenuto definito dallo standard ICAO. Vengono elencati di seguito i DG previsti dallo standard ICAO.
+      Tutti i Data Group e i file dati sono codificati in formato binario ASN.1. Alcuni DG non sono elencati poiché non sono utilizzati 
+      nella Carta d'Identità Elettronica
+     	</para>
+		<list class="bullet">
+		  <listItem>
+	          <xlink:title xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xlink:titleEltType">DG1</xlink:title>
+			  <para>Il DG1 contiene la stringa MRZ stampata sul documento</para>
+		  </listItem>
+		  <listItem>
+	          <xlink:title xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xlink:titleEltType">DG2</xlink:title>
+			  <para>Il DG2 contiene l'elemento biometrico primario, cioè la foto del titolare. La foto è codificata in formato
+			  JPEG2000 secondo lo standard ISO/IEC 19794-5</para>
+		  </listItem>
+		  <listItem>
+	          <xlink:title xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xlink:titleEltType">DG3</xlink:title>
+			  <para>Il DG3 contiene l'elemento biometrico secondario, cioè le impronte digitali del titolare. Le impronte
+			  sono memorizzate in formato WSQ secondo lo standard ISO/IEC 19794-4</para>
+		  </listItem>
+		  <listItem>
+	          <xlink:title xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xlink:titleEltType">DG7</xlink:title>
+			  <para>Il DG7 contiene l'immagine della firma autografa del titolare. L'immagine è codificata in formato JPEG2000</para>
+			  <alert>
+          <para>Il DG7 non è presente nella Carta d'Identità Elettronica</para>
+        </alert>
+		  </listItem>
+		  <listItem>
+	          <xlink:title xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xlink:titleEltType">DG11</xlink:title>
+			  <para>Il DG11 contiene dati relativi al titolare del documento, come l'indirizzo di residenza, la data e il luogo
+			  di nascita, il codice fiscale</para>			  
+		  </listItem>
+		  <listItem>
+	          <xlink:title xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xlink:titleEltType">DG12</xlink:title>
+			  <para>Il DG12 contiene dati relativi al documento, come il luogo e la data di rilascio e l'autorità emittente</para>			  
+		  </listItem>
+		  <listItem>
+	          <xlink:title xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xlink:titleEltType">DG14</xlink:title>
+			  <para>Il DG14 contiene la chiave pubblica e i parametri di dominio Diffie Hellman utilizzati in fase di <link xlink:href="316f22d9-a238-4e2a-94e8-8be18faea347">Chip Authentication</link></para>
+		  </listItem>
+		</list>
+
+       <xlink:title xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xlink:titleEltType">File di servizio</xlink:title>
+     	<para>
+     	Oltre ai DG sono presenti altri file il cui contenuto è legato ai processi di autenticazione e verifica del documento
+     	</para>
+		<list class="bullet">
+		  <listItem>
+	          <xlink:title xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xlink:titleEltType">EF.COM</xlink:title>
+			  <para>L'EF.COM contiene l'elenco dei DG memorizzati nell'MRTD</para>
+		  </listItem>
+		  <listItem>
+	          <xlink:title xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xlink:titleEltType">EF.SOD</xlink:title>
+			  <para>L'EF.SOD contiene la firma digitale degli hash dei DG effettuata tramite il certificato di Document Signer e verificata
+			  in fase di <link xlink:href="316f22d9-a238-4e2a-94e8-8be18faea347">Passive Authentication</link></para>
+		  </listItem>
+		  <listItem>
+	          <xlink:title xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xlink:titleEltType">EF.CVCA</xlink:title>
+			  <para>L'EF.CVCA contiene il nome della CVCA la cui chiave pubblica è memorizzata nel documento e da cui deve essere emesso 
+			  il certificato di Inspection System in fase di <link xlink:href="316f22d9-a238-4e2a-94e8-8be18faea347">Terminal Authentication</link></para>
+		  </listItem>
+		</list>
+		 </content>
+    </section>
+
+    <section>
+      <title>Riferimenti</title>
+      <content>
+        <list>          
+          <listItem><externalLink>
+<linkText>ICAO 9303 - Part 10: Logical Data Structure (LDS) for Storage of Biometrics and Other Data in the Contactless Integrated Circuit (IC)</linkText>
+<linkUri>https://www.icao.int/publications/Documents/9303_p10_cons_en.pdf</linkUri>
+<linkTarget>_blank</linkTarget>
+</externalLink>
+          </listItem>
+          
+        </list>
+      </content>
+    </section>
+    <relatedTopics>
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>

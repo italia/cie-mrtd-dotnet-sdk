@@ -1,0 +1,82 @@
+﻿<html><head><meta http-equiv="X-UA-Compatible" content="IE=edge" /><link rel="shortcut icon" href="../icons/favicon.ico" /><style type="text/css">.OH_CodeSnippetContainerTabLeftActive, .OH_CodeSnippetContainerTabLeft,.OH_CodeSnippetContainerTabLeftDisabled { }.OH_CodeSnippetContainerTabRightActive, .OH_CodeSnippetContainerTabRight,.OH_CodeSnippetContainerTabRightDisabled { }.OH_footer { }</style><link rel="stylesheet" type="text/css" href="../styles/branding.css" /><link rel="stylesheet" type="text/css" href="../styles/branding-it-IT.css" /><script type="text/javascript" src="../scripts/branding.js"> </script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Esempio di utilizzo</title><meta name="Language" content="it-it" /><meta name="Microsoft.Help.Id" content="564c6372-39c3-40b4-b73e-5d6a44394daf" /><meta name="Description" content="In questa sezione si illustra un esempio di utilizzo dell'SDK per la lettura di un MRTD" /><meta name="Microsoft.Help.ContentType" content="Concepts" /><meta name="BrandingAware" content="true" /><link type="text/css" rel="stylesheet" href="../styles/highlight.css" /><script type="text/javascript" src="../scripts/highlight.js"> </script></head><body onload="OnLoad('cs')"><input type="hidden" id="userDataCache" class="userDataStyle" /><div class="OH_outerDiv"><div class="OH_outerContent"><table class="TitleTable"><tr><td class="OH_tdLogoColumn"><img src="../icons/Help.png" /></td><td class="OH_tdTitleColumn">Esempio di utilizzo</td><td class="OH_tdRunningTitleColumn">Carta d'Identità Elettronica - MRTD SDK</td></tr></table><div id="mainSection"><div id="mainBody"><span class="introStyle"></span><div class="introduction"><p>In questa sezione si illustra un esempio di utilizzo dell'SDK per la lettura di un MRTD</p></div><div class="OH_CollapsibleAreaRegion" id="Section1"><div class="OH_regiontitle">Esempio di utilizzo in un'applicazione WinForms</div><div class="OH_CollapsibleArea_HrDiv"><hr class="OH_CollapsibleArea_Hr" /></div></div><div class="OH_clear"> </div><p>
+          L'esempio di codice riportato di seguito mostra come utilizare l'SDK per effettuare la lettura di un MRTD.
+          L'applicazione si mette in ascolto degli eventi su un lettore di smart card e, appena viene avvicinato un documento,
+          avvia la procedura di autenticazione e lettura.
+        </p><div class="OH_CodeSnippetContainer"><div class="OH_CodeSnippetContainerTabs"><div class="OH_CodeSnippetContainerTabLeftActive" id="ID0EAAAAAAA_tabimgleft"> </div><div id="ID0EAAAAAAA_tab1" class="OH_CodeSnippetContainerTabSolo">C#</div><div class="OH_CodeSnippetContainerTabRightActive" id="ID0EAAAAAAA_tabimgright"> </div></div><div class="OH_CodeSnippetContainerCodeCollection"><div class="OH_CodeSnippetToolBar"><div class="OH_CodeSnippetToolBarText"><a id="ID0EAAAAAAA_copyCode" href="#" onclick="javascript:CopyToClipboard('ID0EAAAAAAA');return false;" title="Copy">Copy</a></div></div><div id="ID0EAAAAAAA_code_Div1" class="OH_CodeSnippetContainerCode" style="display: block"><pre xml:space="preserve"><span class="highlight-keyword">var</span> f = <span class="highlight-keyword">new</span> Form1();
+
+<span class="highlight-comment">// crea un aggetto SmartCard per il monitoraggio dei lettori e la connessione al chip</span>
+SmartCard sc = <span class="highlight-keyword">new</span> SmartCard();
+
+Imposta un listener dell'evento di comunicazione con il chip
+sc.SmarCardCommunication += <span class="highlight-keyword">new</span> SmarCardCommunicationDelegate((x, b) =&gt; {
+    <span class="highlight-comment">// scrivo in debug i dati inviati e ricevuti dal chip</span>
+    System.Diagnostics.Debug.WriteLine(x.ToString() + <span class="highlight-literal">":"</span> + BitConverter.ToString(b));
+});
+
+<span class="highlight-comment">// Alla rimozione del documento aggiorno la label del form</span>
+sc.onRemoveCard += <span class="highlight-keyword">new</span> CardEventHandler((r) =&gt;
+{
+    f.label1.Text = <span class="highlight-literal">"Appoggiare la carta sul lettore"</span>;
+});
+
+<span class="highlight-comment">// All'inserimento del documento aggiorno la label e avvio la lettura</span>
+sc.onInsertCard += <span class="highlight-keyword">new</span> CardEventHandler((r) =&gt; {
+
+    f.label1.Text = <span class="highlight-literal">"Lettura in corso"</span>;
+    <span class="highlight-comment">// siamo all'interno dell'event handler del form, quindi per aggiornare la label devo eseguire il Message Loop</span>
+    Application.DoEvents();
+
+    <span class="highlight-comment">// avvio la connessione al lettore richiedendo l'accesso esclusivo al chip</span>
+    <span class="highlight-keyword">if</span> (!sc.Connect(r, Share.SCARD_SHARE_EXCLUSIVE, Protocol.SCARD_PROTOCOL_T1))
+    {
+        System.Diagnostics.Debug.WriteLine(<span class="highlight-literal">"Errore in connessione: "</span> + sc.LastSCardResult.ToString(<span class="highlight-literal">"X08"</span>));
+        <span class="highlight-keyword">return</span>;
+    }
+
+    <span class="highlight-comment">// Creo l'oggetto EAC per l'autenticazione e la lettura, passando la smart card su cui eseguire i comandi</span>
+    EAC a = <span class="highlight-keyword">new</span> EAC(sc);
+
+    <span class="highlight-comment">// Verifico se il chip è SAC</span>
+    <span class="highlight-keyword">if</span> (a.IsSAC())
+        <span class="highlight-comment">// Effettuo l'autenticazione PACE.</span>
+        <span class="highlight-comment">// In un caso reale prima di avvare la connessione al chip dovrei chiedere all'utente di inserire il CAN                    </span>
+        a.PACE(<span class="highlight-literal">"123456"</span>);
+    <span class="highlight-keyword">else</span> {
+        <span class="highlight-comment">// Per fare BAC dovrei fare la scansione dell'MRZ e applicare l'OCR all'imagine ottenuta. In questo caso ritorno errore.</span>
+        <span class="highlight-comment">// a.BAC(MRZbirthDate, expiryDate, passNumber)</span>
+        f.label1.Text = <span class="highlight-literal">"BAC non disponibile"</span>;
+        <span class="highlight-keyword">return</span>;
+    }
+
+    <span class="highlight-comment">// Per poter fare la chip authentication devo prima leggere il DG14</span>
+    <span class="highlight-keyword">var</span> dg14 = a.ReadDG(DG.DG14);
+
+    <span class="highlight-comment">// Effettuo la chip authentication</span>
+    a.ChipAuthentication();
+
+    <span class="highlight-comment">// Leggo il DG2 contenente la foto</span>
+    <span class="highlight-keyword">var</span> dg2 = a.ReadDG(DG.DG2);
+
+    <span class="highlight-comment">// Disconnessione dal chip</span>
+    sc.Disconnect(Disposition.SCARD_RESET_CARD);
+
+    <span class="highlight-comment">// Aggiorno la laber del form</span>
+    f.label1.Text = <span class="highlight-literal">"OK!"</span>;
+});
+
+<span class="highlight-comment">// Alla chiusura del Form sospendo il monitoraggio dei lettori, altrimenti l'applicazione</span>
+<span class="highlight-comment">// si blocca in attesa del terine del thread</span>
+f.FormClosing += <span class="highlight-keyword">new</span> FormClosingEventHandler((o, e) =&gt;
+{
+    sc.StopMonitoring();
+});
+
+<span class="highlight-comment">// Imposto l'interfaccia per l'invio delle notifiche. In questo modo posso interagire con</span>
+<span class="highlight-comment">// il form senza dover usare delle Invoke.</span>
+sc.InterfaceForEvents = f;
+
+<span class="highlight-comment">// Avvio il monitoraggio dei lettori</span>
+sc.StartMonitoring(<span class="highlight-keyword">true</span>);
+
+<span class="highlight-comment">// Visualizzo il Form informativo</span>
+f.ShowDialog();</pre></div></div></div><script type="text/javascript">AddLanguageTabSet("ID0EAAAAAAA");</script></div></div></div></div><div id="OH_footer" class="OH_footer" /></body></html>

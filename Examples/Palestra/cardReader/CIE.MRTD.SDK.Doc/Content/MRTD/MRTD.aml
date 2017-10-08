@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="48d766ab-d818-4f67-8195-c9916625ab28" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+
+    <introduction>
+      <para>Questa sezione descrive brevemente i Machine Readable Travel Document (MRTD)</para>
+    </introduction>
+
+
+    <section address="Section1">		
+    <title>Contenuto</title>
+     <content>
+		<list class="bullet">
+		  <listItem><para><link xlink:href="316f22d9-a238-4e2a-94e8-8be18faea347">Meccanismi di autenticazione</link></para></listItem>
+		  <listItem><para><link xlink:href="c8d4bf80-f642-4d2b-842e-088dd12b0476">Data Group</link></para></listItem>
+		</list>
+		 </content>
+    </section>
+
+    <relatedTopics>
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>
