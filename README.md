@@ -15,12 +15,13 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install.
+What you need to install.
 
 ```
 Visual Studio 2017 Community Edition - .Net Framework 4.5
 CSJ2K - Portable JPEG 2000 codec library - This library can be easily downloaded from the Visual Studio NuGet Packet Manager.
 ```
+In order to execute the app, you must add a folder named "data" in your Debug/Realease directory.
 
 
 ## Project Class tree
