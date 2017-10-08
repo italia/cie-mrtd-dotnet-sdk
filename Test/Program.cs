@@ -21,7 +21,7 @@ namespace Test
         const int ENCODING_JSON = 3;
 
         //path di salvataggio/recuopero dei file xml/json/csv
-        const String savePath = "data/";
+        const String savePath = "";
 
         static Form1 f = null;
 
