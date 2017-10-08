@@ -1,0 +1,14 @@
+C:\Users\charlie\Desktop\GitLocal\cie-mrtd-sdk\Test\bin\Debug\Test.exe
+C:\Users\charlie\Desktop\GitLocal\cie-mrtd-sdk\Test\bin\Debug\Test.pdb
+C:\Users\charlie\Desktop\GitLocal\cie-mrtd-sdk\Test\bin\Debug\CIE.MRTD.SDK.dll
+C:\Users\charlie\Desktop\GitLocal\cie-mrtd-sdk\Test\bin\Debug\CSJ2K.dll
+C:\Users\charlie\Desktop\GitLocal\cie-mrtd-sdk\Test\bin\Debug\CIE.MRTD.SDK.pdb
+C:\Users\charlie\Desktop\GitLocal\cie-mrtd-sdk\Test\bin\Debug\CIE.MRTD.SDK.xml
+C:\Users\charlie\Desktop\GitLocal\cie-mrtd-sdk\Test\bin\Debug\CSJ2K.pdb
+C:\Users\charlie\Desktop\GitLocal\cie-mrtd-sdk\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+C:\Users\charlie\Desktop\GitLocal\cie-mrtd-sdk\Test\obj\Debug\Test.Form1.resources
+C:\Users\charlie\Desktop\GitLocal\cie-mrtd-sdk\Test\obj\Debug\Test.Properties.Resources.resources
+C:\Users\charlie\Desktop\GitLocal\cie-mrtd-sdk\Test\obj\Debug\Test.csproj.GenerateResource.Cache
+C:\Users\charlie\Desktop\GitLocal\cie-mrtd-sdk\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
+C:\Users\charlie\Desktop\GitLocal\cie-mrtd-sdk\Test\obj\Debug\Test.exe
+C:\Users\charlie\Desktop\GitLocal\cie-mrtd-sdk\Test\obj\Debug\Test.pdb
