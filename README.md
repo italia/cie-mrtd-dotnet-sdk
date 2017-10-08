@@ -25,10 +25,11 @@ CSJ2K - Portable JPEG 2000 codec library - This library can be easily downloaded
 
 ## Project Class tree
 The project mantains the old project structure adding the following classes:
+```
 - ParseLib			: Our Namespace.
 	- C_CIE			: Our User Model (Logical Data Struct) + ICAO MRTD information Parsing + Data Import/Export.
 	- ArrayUtils	: Array Manipulation.
-
+```
 The Program.cs file (In the "Test" namespace) is the application starting point. It has been heavily modified in order to add new functionalities.
 	
 We performed many unit test, testing our app in all it's main use cases. No particular problem has been detected.
@@ -36,6 +37,7 @@ We performed many unit test, testing our app in all it's main use cases. No part
 ### And coding style tests
 
 Every Class method & attribute is documented inside it's source files. Below a list of the main class methods developed and used in this project.
+```
 - ParseLib
 	-C_CIE
 		- Byte[] Image_retrive(Byte [] Blob); 					It extracts a jpeg2000 image from an array bytes based on it's magic number.
@@ -46,7 +48,7 @@ Every Class method & attribute is documented inside it's source files. Below a l
 			saveOnJSON(string path), readFromXML(string path),  Self Explaining methods.
 			readFromCSV(string path), readFromJSONSelf(string path)
 
-
+```
 
 ## Acknowledgments
 We would like to thank the whole Stack Overflow Community.
