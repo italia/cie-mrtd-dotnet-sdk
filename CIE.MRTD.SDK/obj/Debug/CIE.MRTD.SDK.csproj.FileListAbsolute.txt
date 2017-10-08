@@ -1,0 +1,9 @@
+C:\Users\Marco\Desktop\Hack\cie-mrtd-sdk-master\cie-mrtd-sdk-master\CIE.MRTD.SDK\bin\Debug\CIE.MRTD.SDK.XML
+C:\Users\Marco\Desktop\Hack\cie-mrtd-sdk-master\cie-mrtd-sdk-master\CIE.MRTD.SDK\bin\Debug\CIE.MRTD.SDK.dll
+C:\Users\Marco\Desktop\Hack\cie-mrtd-sdk-master\cie-mrtd-sdk-master\CIE.MRTD.SDK\bin\Debug\CIE.MRTD.SDK.pdb
+C:\Users\Marco\Desktop\Hack\cie-mrtd-sdk-master\cie-mrtd-sdk-master\CIE.MRTD.SDK\obj\Debug\CIE.MRTD.SDK.csproj.CoreCompileInputs.cache
+C:\Users\Marco\Desktop\Hack\cie-mrtd-sdk-master\cie-mrtd-sdk-master\CIE.MRTD.SDK\obj\Debug\CIE.MRTD.SDK.dll
+C:\Users\Marco\Desktop\Hack\cie-mrtd-sdk-master\cie-mrtd-sdk-master\CIE.MRTD.SDK\obj\Debug\CIE.MRTD.SDK.pdb
+C:\Users\Marco\Desktop\Hack\cie-mrtd-sdk-master\cie-mrtd-sdk-master\CIE.MRTD.SDK\bin\Debug\CSJ2K.dll
+C:\Users\Marco\Desktop\Hack\cie-mrtd-sdk-master\cie-mrtd-sdk-master\CIE.MRTD.SDK\bin\Debug\CSJ2K.pdb
+C:\Users\Marco\Desktop\Hack\cie-mrtd-sdk-master\cie-mrtd-sdk-master\CIE.MRTD.SDK\obj\Debug\CIE.MRTD.SDK.csprojResolveAssemblyReference.cache
