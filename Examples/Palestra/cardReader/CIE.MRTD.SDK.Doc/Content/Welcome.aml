@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="252ca59e-58be-4bcf-b7b8-a5dbf30d01c7" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<introduction>
+			<para>Questa guida descrive l'SDK per la lettura della parte di identificazione (ICAO MRD) della Carta d'Identità ElettElettronica</para>
+		</introduction>
+
+		<section>
+			<title>Getting Started</title>
+			<content>
+				<para>
+          La carta d'Identità Elettronica 3.0, emessa dal Ministero dell'Interno a partire dal giugno 2016
+          è un documento d'identità elettronico che contiene un chip RFID contactless. Il chip RFID è conforme allo
+          standard ISO 14443-A/B e alle normative internazionali relative ai documenti di viaggio (<legacyBold>
+            ICAO MRTD</legacyBold> - Machine Readable Travel Document) e di identità (<legacyBold>ECC</legacyBold> - 
+            European Citizen Card)</para>
+
+        <para>Questa guida descrive l'utilizzo dell'SDK relativo alla lettura dei dati dell'applicazione ICAO MRTD
+        presente sul chip</para>
+       
+			</content>
+		</section>
+
+		<relatedTopics>
+			<link xlink:href="820b12e4-51d4-44b8-bf89-59be84ff3e25" />
+      <link xlink:href="48d766ab-d818-4f67-8195-c9916625ab28" />
+		</relatedTopics>
+	</developerConceptualDocument>
+</topic>

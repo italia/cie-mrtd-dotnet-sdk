@@ -1,0 +1,1158 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CIE.MRTD.SDK</name>
+    </assembly>
+    <members>
+        <member name="T:CIE.MRTD.SDK.PCSC.Apdu">
+            <summary>
+            La classe Apdu rappresenta un comando da inviare alla smart card.
+            L'APDU è formata da un Header di 4 bytes (CLA, INS, P1, P2), un campo dati opzionale e una lunghezza ritornata opzionale
+            </summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.PCSC.Apdu.INS">
+            <summary>Byte INS</summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.PCSC.Apdu.CLA">
+            <summary>Byte CLA</summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.PCSC.Apdu.P1">
+            <summary>Byte P1</summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.PCSC.Apdu.P2">
+            <summary>Byte P2</summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.PCSC.Apdu.Data">
+            <summary>Campo dati</summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.PCSC.Apdu.LE">
+            <summary>Lunghezza ritornata</summary>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.Apdu.#ctor(System.Byte,System.Byte,System.Byte,System.Byte,System.Byte[],System.Byte)">
+            <summary>
+            Costruisce un APDU caso 4 (Campo dati ed LE)
+            </summary>
+            <param name="_CLA">Byte CLA</param>
+            <param name="_INS">Byte INS</param>
+            <param name="_P1">Byte P1</param>
+            <param name="_P2">Byte P2</param>
+            <param name="_Data">Campo Dati</param>
+            <param name="_LE">Lunghezza aspettata</param>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.Apdu.#ctor(System.Byte,System.Byte,System.Byte,System.Byte,System.Byte[])">
+            <summary>
+            Costruisce un APDU caso 3 (Campo dati)
+            </summary>
+            <param name="_CLA">Byte CLA</param>
+            <param name="_INS">Byte INS</param>
+            <param name="_P1">Byte P1</param>
+            <param name="_P2">Byte P2</param>
+            <param name="_Data">Campo Dati</param>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.Apdu.#ctor(System.Byte,System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Costruisce un APDU caso 2 (LE)
+            </summary>
+            <param name="_CLA">Byte CLA</param>
+            <param name="_INS">Byte INS</param>
+            <param name="_P1">Byte P1</param>
+            <param name="_P2">Byte P2</param>
+            <param name="_LE">Lunghezza aspettata</param>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.Apdu.#ctor(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Costruisce un APDU caso 1 (Solo header)
+            </summary>
+            <param name="_CLA">Byte CLA</param>
+            <param name="_INS">Byte INS</param>
+            <param name="_P1">Byte P1</param>
+            <param name="_P2">Byte P2</param>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.Apdu.ToString">
+            <summary>
+            Converte l'Apdu una stringa esadecimale
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.Apdu.GetBytes">
+            <summary>
+            Ritorna un'Apdu rappresentata come sequenza di bytes, gestendo anche il caso di Campo dati di lunghezza maggiore di 256 bytes
+            (Extended Apdu)
+            </summary>
+            <returns>L'array di bytes che rappresenta l'Apdu</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.Apdu.ReadBinary(System.Int32,System.Byte)">
+            <summary>
+            Costruisce un oggetto Apdu che rappresenta un comando di ReadBinary
+            </summary>
+            <param name="start">Offset dall'inizio dell'EF da cui leggere</param>
+            <param name="size">Numero di bytes da leggere</param>
+            <returns>L'Apdu di lettura</returns>
+        </member>
+        <member name="T:CIE.MRTD.SDK.PCSC.Status">
+            <summary>
+            Stato di una Smartcard. Vedi la struttura <a href="https://msdn.microsoft.com/it-it/library/windows/desktop/aa379808(v=vs.85).aspx">SCARD_READERSTATE </a>
+            </summary>
+        </member>
+        <member name="T:CIE.MRTD.SDK.PCSC.Share">
+            <summary>
+            Modalità di sharing di una smart card. Vedi la funzione <a href="https://msdn.microsoft.com/it-it/library/windows/desktop/aa379473(v=vs.85).aspx">SCardConnect</a>
+            </summary>
+        </member>
+        <member name="T:CIE.MRTD.SDK.PCSC.Protocol">
+            <summary>
+            Protocollo di comunicazione con una smart card. Vedi la funzione <a href="https://msdn.microsoft.com/it-it/library/windows/desktop/aa379473(v=vs.85).aspx">SCardConnect</a>
+            </summary>
+        </member>
+        <member name="T:CIE.MRTD.SDK.PCSC.Disposition">
+            <summary>
+            Azione da intraprendere al momento della chiusura della connessione. Vedi la funzione <a href="https://msdn.microsoft.com/it-it/library/windows/desktop/aa379475(v=vs.85).aspx">SCardDisconnect</a>
+            </summary>
+        </member>
+        <member name="T:CIE.MRTD.SDK.PCSC.CardEventHandler">
+            <summary>
+            Delegate chiamata dalla classe Smartcard per gli eventi di inserimento e rimozione carte dai lettori
+            </summary>
+            <param name="reader">Nome del lettore in cui è avvenuto l'evento</param>
+        </member>
+        <member name="T:CIE.MRTD.SDK.PCSC.CommandLog">
+            <summary>
+            Log dell'invio di un comando Apdu
+            </summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.PCSC.CommandLog.Command">
+            <summary>
+            Array di byte del comando Apdu
+            </summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.PCSC.CommandLog.Response">
+            <summary>
+            Array di byte della risposta inviata dalla smart card
+            </summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.PCSC.CommandLog.LastSCardResult">
+            <summary>
+            Ultima Status Word letta dall'oggetto Smartcard
+            </summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.PCSC.CommandLog.LastWinError">
+            <summary>
+            Il codice di errore di windows nell'invio dell'Apdu alla smart card
+            </summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.PCSC.CommandLog.SW">
+            <summary>
+            La status word della risposta all'Apdu
+            </summary>
+        </member>
+        <member name="T:CIE.MRTD.SDK.PCSC.CommType">
+            <summary>
+            Tipo di comunicazione loggata dalla smart card
+            </summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.PCSC.CommType.APDU">
+            <summary>Apdu inviata alla smart card</summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.PCSC.CommType.Response">
+            <summary>Risposta ricevuta dalla smart card</summary>
+        </member>
+        <member name="T:CIE.MRTD.SDK.PCSC.SmarCardCommunicationDelegate">
+            <summary>
+            Delegate chiamata dalla classe Smartcard per gli eventi di invio Apdu e ricezione risposta
+            </summary>
+            <param name="type">Tipo di comunicazione</param>
+            <param name="buffer">Dati inviat io ricevuti</param>
+        </member>
+        <member name="T:CIE.MRTD.SDK.PCSC.SmartCard">
+            <summary>
+            L'oggetto SmatCard permette di effettuare operazioni sui lettori di smart card, monitorare l'inserimento e
+            la rimozione di una smart card, aprire un connessione e inviare comandi.
+            </summary>
+        </member>
+        <member name="E:CIE.MRTD.SDK.PCSC.SmartCard.onInsertCard">
+            <summary>
+            Evento generato all'inserimento di una smart card in un lettore
+            </summary>
+        </member>
+        <member name="E:CIE.MRTD.SDK.PCSC.SmartCard.onRemoveCard">
+            <summary>
+            Evento generato alla rimozione di una smart card da un lettore
+            </summary>
+        </member>
+        <member name="E:CIE.MRTD.SDK.PCSC.SmartCard.onReadersChange">
+            <summary>
+            Evento generato alla variazione dell'elenco dei lettori di sart card collegati al sistema
+            </summary>
+        </member>
+        <member name="E:CIE.MRTD.SDK.PCSC.SmartCard.SmarCardCommunication">
+            <summary>
+            Evento generato durante la comunicazione con la smart card
+            </summary>
+        </member>
+        <member name="P:CIE.MRTD.SDK.PCSC.SmartCard.DispositionOnDispose">
+            <summary>
+            Azione da intraprendere al momento del Dispose se la connessione è ancora attiva
+            </summary>
+        </member>
+        <member name="P:CIE.MRTD.SDK.PCSC.SmartCard.KeepConnectionOpen">
+            <summary>
+            Specifica se mantenere la connessione aperta quando viene eseguito il Dispose
+            </summary>
+        </member>
+        <member name="P:CIE.MRTD.SDK.PCSC.SmartCard.KeepTransactionOpen">
+            <summary>
+            Specifica se mantenere la transazione aperta quando viene eseguito il Dispose
+            </summary>
+        </member>
+        <member name="P:CIE.MRTD.SDK.PCSC.SmartCard.InterfaceForEvents">
+            <summary>
+            Se viene valorizzato, gli eventi di inserimento e rimozione smart card vengono chiamati tramite Invoke su questo oggetto
+            </summary>
+        </member>
+        <member name="P:CIE.MRTD.SDK.PCSC.SmartCard.LogEnabled">
+            <summary>
+            Se il Log è abilitato, tutti i comandi Apdu vengono memorizzati in una lista e possono essere consultati
+            </summary>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.GetLog">
+            <summary>
+            Se il log è abilitato ritorna la lista dei comandi inviati alla smart card e le relative risposte
+            </summary>
+            <returns>Lal ista dei comandi inviati</returns>
+        </member>
+        <member name="P:CIE.MRTD.SDK.PCSC.SmartCard.IsMonitoringReaders">
+            <summary>
+            Ritorna true se c'è un monitoraggio di lettori in corso
+            </summary>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.StartMonitoringReaders">
+            <summary>
+            Inizia il monitoraggio dei lettori. Viene sollevato l'evento onReadersChange quando vengono collegati o scollegati
+            dei lettori di smart card.
+            Il monitoraggio viene avviato in modalità asincrona, all'interno di un thread specifico. Il thread rimane in esecuzione
+            finché non viene chiamata StopMonitoring.
+            </summary>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.StopMonitoringReaders">
+            <summary>
+            Ferma il monitoraggio dei lettori. Equivalente a StopMonitoringReaders(false) 
+            </summary>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.GetState(System.String)">
+            <summary>
+            Restituisce lo stato della smart card nel lettore specificato
+            </summary>
+            <param name="reader">Il nome del lettore (ritornato da ListReaders)</param>
+            <returns>Lo stato del lettore</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.GetATR(System.String)">
+            <summary>
+            Restituisce l'ATR della smart card nel lettore specificato
+            </summary>
+            <param name="reader">Il nome del lettore (ritornato da ListReaders)</param>
+            <returns>L'ATR del chip</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.StopMonitoringReaders(System.Boolean)">
+            <summary>
+            Ferma il monitoraggio dei lettori, specificando se attendere il termine degli handler degli eventi
+            </summary>
+            <param name="Wait">true per attendere il ritorno delle routine di gestione degli eventi, false altrimenti</param>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.#ctor">
+            <summary>
+            Costruisce un oggetto smart card
+            </summary>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.Control(System.UInt32,System.Byte[])">
+            <summary>
+            Invia un comando di controllo a basso livello ad un lettore di smart card connesso. Vedi la funzione <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa379474(v=vs.85).aspx">SCardControl</a>
+            </summary>
+            <param name="controlCode">Codice di controllo</param>
+            <param name="inBuffer">Dati richiesti per eseguire l'operazione</param>
+            <returns>Dati ritornati dal lettore</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.GetAttrib(System.UInt32)">
+            <summary>
+            Richiede un attributo del lettore di smart card connesso. Vedi la funzione <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa379559(v=vs.85).aspx">SCardGetAttrib</a>
+            </summary>
+            <param name="attrib">Valore dell'attributo da richiedere</param>
+            <returns>Buffer contenente la risposta del lettore di smart card</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.Reconnect(CIE.MRTD.SDK.PCSC.Share,CIE.MRTD.SDK.PCSC.Protocol,CIE.MRTD.SDK.PCSC.Disposition)">
+            <summary>
+            Effettua una riconnessione ad un lettore di smart card già connesso, applicando la Diposition specificata
+            </summary>
+            <param name="ShareMode">Modalità di sharing</param>
+            <param name="PreferredProtocols">Protocollo utilizzato</param>
+            <param name="Disposition">Disposition alla chisura della connessione</param>
+            <returns>true se la riconnessione è stata effettuata correttamente, false altrimenti</returns>
+        </member>
+        <member name="P:CIE.MRTD.SDK.PCSC.SmartCard.ConnectedReader">
+            <summary>
+            Restituisce il nome del lettore attualmente connesso
+            </summary>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.Connect(System.String,CIE.MRTD.SDK.PCSC.Share,CIE.MRTD.SDK.PCSC.Protocol)">
+            <summary>
+            Effettua una connessione ad un lettore di smart card
+            </summary>
+            <param name="reader">Nome del lettore a cui connettersi (ritornato da ListReaders)</param>
+            <param name="ShareMode">Modalità di sharing</param>
+            <param name="PreferredProtocols">Protocollo utilizzato</param>
+            <returns>true se la connessione è stata effettuata correttamente, false altrimenti </returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.Disconnect(CIE.MRTD.SDK.PCSC.Disposition)">
+            <summary>
+            Effettua una disconnessione da un lettore di smart card, applicando la Diposition specificata
+            </summary>
+            <param name="Disposition">Disposition alla chisura della connessione</param>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.ListReaders">
+            <summary>
+            Ritrorna la lista dei lettori di smart card collegati al sistema
+            </summary>
+            <returns>Una lista di stringhe contenente i nomi dei lettori</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.BeginTransaction">
+            <summary>
+            Inizia una transazione su una connessione esistente. All'interno della transazione, anche se lo ShareMode è impostato su SCARD_SHARE_SHARED,
+            altre applicazioni non possono accedere alla smart card. Da Windows 8 in poi, se la transazione rimane appesa per 5 secondi 
+            senza attività sulla smart card, viene automaticamente disconnessa
+            </summary>
+            <returns>true se la transazione è iniziata corretamente, false altrimenti</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.EndTransaction(CIE.MRTD.SDK.PCSC.Disposition)">
+            <summary>
+            Termina una transazione su una smart card, applicando la Diposition specificata
+            </summary>
+            <param name="Disposition">Disposition alla chisura della connessione</param>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.Transmit(CIE.MRTD.SDK.PCSC.Apdu)">
+            <summary>
+            Trasmette un comando rappresentato da un oggetto Apdu ad una smart card
+            </summary>
+            <param name="apdu">L'Apdu da trasmettere</param>
+            <returns>La Status Word ritornata dalla Smart Card</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.Transmit(CIE.MRTD.SDK.PCSC.Apdu,System.Byte[]@)">
+            <summary>
+            Trasmette un comando rappresentato da un oggetto Apdu ad una smart card
+            </summary>
+            <param name="apdu">L'Apdu da trasmettere</param>
+            <param name="resp">Il buffer in cui verrà memorizzata la risposta della smart card</param>
+            <returns>La Status Word ritornata dalla Smart Card</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.Transmit(System.Byte[])">
+            <summary>
+            Trasmette un comando rappresentato da un'array di bytes ad una smart card
+            </summary>
+            <param name="SendBuffer">Il coando da trasmettere</param>
+            <returns>La Status Word ritornata dalla Smart Card</returns>
+        </member>
+        <member name="P:CIE.MRTD.SDK.PCSC.SmartCard.LastSCardResult">
+            <summary>
+            Ritorna l'ultima Status Word ottenuta dalla Smart card
+            </summary>
+        </member>
+        <member name="P:CIE.MRTD.SDK.PCSC.SmartCard.LastWinError">
+             <summary>
+             Ritorna l'ultimo codice di errore di Windows ottenuto durante la trasmissione
+            di un'Apdu alla smart card
+             </summary>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.Transmit(System.Byte[],System.Byte[]@)">
+            <summary>
+            Trasmette un comando rappresentato da un'array di bytes ad una smart card
+            </summary>
+            <param name="SendBuffer">L'Apdu da trasmettere</param>
+            <param name="resp">Il buffer in cui verrà memorizzata la risposta della smart card</param>
+            <returns>La Status Word ritornata dalla Smart Card</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.Cancel">
+            <summary>
+            Forza l'interruzioni di altre azioni in attesa della smart card all'interno del Context della connessione corrente. Vedi la funzione <a href="https://msdn.microsoft.com/it-it/library/windows/desktop/aa379470(v=vs.85).aspx">SCardCancel</a>
+            </summary>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.StartMonitoring">
+            <summary>
+            Inizia il monitoraggio delle smart card. Viene sollevato l'evento onInsertCard e onRemoveCard all'inserimento e alla rimozione
+            di una smart card. Corrisponde a StartMonitoring(true)
+            </summary>
+        </member>
+        <member name="P:CIE.MRTD.SDK.PCSC.SmartCard.IsMonitoring">
+            <summary>
+            Ritorna true se c'è un monitoraggio di smart card in corso
+            </summary>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.StartMonitoring(System.Boolean)">
+            <summary>
+            Inizia il monitoraggio delle smart card. Viene sollevato l'evento onInsertCard e onRemoveCard all'inserimento e alla rimozione
+            di una smart card. Se una smart card è già presente al momento della chiamata, l'evento onInsertCard viene sollevato se
+            initialEvent è impostato a true
+            Il monitoraggio viene avviato in modalità asincrona, all'interno di un thread specifico. Il thread rimane in esecuzione
+            finché non viene chiamata StopMonitoring.
+            </summary>
+            <param name="initialEvent">Se è true viene sollevato l'evento di insert se la smart card è già inserita</param>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.IsCardInReader(System.String)">
+            <summary>
+            Verifica se c'è una smart card all'interno del lettore specificato
+            </summary>
+            <param name="reader">Il nome del lettore (ritornato da ListReaders)</param>
+            <returns></returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.StartMonitoring(System.String[])">
+            <summary>
+            Inizia il monitoraggio delle smart card sui lettori specificati. Viene sollevato l'evento onInsertCard e onRemoveCard all'inserimento e alla rimozione
+            di una smart card. Corrisponde a StartMonitoring(readerName,true).
+            Il monitoraggio viene avviato in modalità asincrona, all'interno di un thread specifico. Il thread rimane in esecuzione
+            finché non viene chiamata StopMonitoring.
+            </summary>
+            <param name="readerName">Array di stringhe contenenti l'elenco dei lettori da monitorare</param>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.StartMonitoring(System.String[],System.Boolean)">
+            <summary>
+            Inizia il monitoraggio delle smart card sui lettori specificati. Viene sollevato l'evento onInsertCard e onRemoveCard all'inserimento e alla rimozione
+            di una smart card. Se una smart card è già presente al momento della chiamata, l'evento onInsertCard viene sollevato se
+            initialEvent è impostato a true.
+            Il monitoraggio viene avviato in modalità asincrona, all'interno di un thread specifico. Il thread rimane in esecuzione
+            finché non viene chiamata StopMonitoring.
+            </summary>
+            <param name="readerName">Array di stringhe contenenti l'elenco dei lettori da monitorare</param>
+            <param name="initialEvent">Se è true viene sollevato l'evento di insert se la smart card è già inserita</param>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.StopMonitoring">
+            <summary>
+            Ferma il monitoraggio delle smart card. Equivalente a StopMonitoring(false) 
+            </summary>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.StopMonitoring(System.Boolean)">
+            <summary>
+            Ferma il monitoraggio delle smart card, specificando se attendere il termine degli handler degli eventi
+            </summary>
+            <param name="Wait">true per attendere il ritorno delle routine di gestione degli eventi, false altrimenti</param>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.StatusWordString(System.UInt32)">
+            <summary>
+            Ritorna una stringa di errore corrispondente ad una Status Word, come definito dall'ISO7816
+            </summary>
+            <param name="statusWord">Status word da tradurre in stringa</param>
+            <returns>Descizione dell'errore</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.Finalize">
+            <summary>
+            Distruttore dell'oggetto Smartcard
+            </summary>
+        </member>
+        <member name="M:CIE.MRTD.SDK.PCSC.SmartCard.Dispose">
+            <summary>
+            Effettua il DIspose di un oggetto. Ferma il monitoraggio di lettori e smart card.
+            Se la transazione è ancora aperta e KeepTransactionOpen è false la termina
+            Se la connessione è ancora aperta e KeepConnectionOpen è false la chiude
+            </summary>
+        </member>
+        <member name="T:CIE.MRTD.SDK.PCSC.Attribute">
+            <summary>
+            Attributi di un lettore. Vedi la funzione <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa379559(v=vs.85).aspx">SCardGetAttrib</a>
+            </summary>
+        </member>
+        <member name="T:CIE.MRTD.SDK.EAC.EACException">
+            <summary>
+            La classe EACException rappresenta un'eccezione incontrata durante l'esecuzione del protocollo EAC (BAC/PACE - ChipAuth - TerminalAuth)
+            </summary>
+        </member>
+        <member name="M:CIE.MRTD.SDK.EAC.EACException.#ctor(System.String,System.Exception)">
+            <summary>
+            Costruttore di un'eccezione EAC
+            </summary>
+            <param name="innerException">L'eccezione interna</param>
+            <param name="Message">Il messaggio di errore</param>
+        </member>
+        <member name="T:CIE.MRTD.SDK.EAC.ApduException">
+            <summary>
+            La classe ApduException rappresenta un'eccezione lanciata durante l'invio di una Apdu alla smart card
+            </summary>
+        </member>
+        <member name="P:CIE.MRTD.SDK.EAC.ApduException.LastSCardResult">
+            <summary>
+            Ritorna l'ultima status word restuita dalla smart card
+            </summary>
+        </member>
+        <member name="P:CIE.MRTD.SDK.EAC.ApduException.LastWinError">
+            <summary>
+            Ritorna l'ultimo codice di errore di windows restituito in fase di trasmissione di una APDU
+            </summary>
+        </member>
+        <member name="P:CIE.MRTD.SDK.EAC.ApduException.SW">
+            <summary>
+            Ritorna la Status Word che ha provocato l'eccezione
+            </summary>
+        </member>
+        <member name="M:CIE.MRTD.SDK.EAC.ApduException.#ctor(System.UInt32,System.String)">
+            <summary>
+            Costruttore una APDUException a partire da una status word e un messaggio di errore
+            </summary>
+            <param name="message">Il messaggio di errore</param>
+            <param name="sw">La Status Word ritornata dalla smart card</param>
+        </member>
+        <member name="M:CIE.MRTD.SDK.EAC.ApduException.#ctor(CIE.MRTD.SDK.PCSC.SmartCard,System.UInt32,System.String)">
+            <summary>
+            Costruttore una APDUException a partire da una Status Word, un messaggio di errore e un oggetto Smartcard
+            da cui verranno ricavati il codice di errore di windows e l'ultima Status Word
+            </summary>
+            <param name="message">Il messaggio d'errore</param>
+            <param name="sc">L'oggetto Smartcard in cui si è verificato l'errore</param>
+            <param name="sw">La Status Word ritornata dalla smart card</param>
+        </member>
+        <member name="T:CIE.MRTD.SDK.EAC.TABinding">
+            <summary>
+            Il TABinding è il binding effettuato in fase di Termoianl Authentication (Static per BAC e Dynamic per PACE)
+            </summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.EAC.TABinding.Static">
+            <summary>binding Statico</summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.EAC.TABinding.Dynamic">
+            <summary>binding Dinamico</summary>
+        </member>
+        <member name="T:CIE.MRTD.SDK.EAC.DG">
+            <summary>
+            L'enumerazione DG contiene i DG e i file di dati che possono essere letti da un MRTD
+            </summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.EAC.DG.DG1">
+            <summary>DG1 - MRZ</summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.EAC.DG.DG2">
+            <summary>DG2 - Encoded Face</summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.EAC.DG.DG3">
+            <summary>DG3 - Encoded Finger(s)</summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.EAC.DG.DG4">
+            <summary>DG4 - Encoded Eye(s)</summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.EAC.DG.DG5">
+            <summary>DG5 - Displayed Portrait</summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.EAC.DG.DG6">
+            <summary>DG6 - RFU</summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.EAC.DG.DG7">
+            <summary>DG7 - Displayed Signature or Usual Mark</summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.EAC.DG.DG8">
+            <summary>DG8 - Data Feature(s)</summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.EAC.DG.DG9">
+            <summary>DG9 - Structure Feature(s)</summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.EAC.DG.DG10">
+            <summary>DG10 - Substance Feature(s)</summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.EAC.DG.DG11">
+            <summary>DG11 - Additional Personal Detail(s)</summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.EAC.DG.DG12">
+            <summary>DG12 - Additional Document Detail(s)</summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.EAC.DG.DG13">
+            <summary>DG13 - Optional Detail(s)</summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.EAC.DG.DG14">
+            <summary>DG14 - Security Options</summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.EAC.DG.DG15">
+            <summary>DG15 - Active Authentication Public Key Info</summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.EAC.DG.DG16">
+            <summary>DG16 - Person(s) to Notify</summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.EAC.DG.SOD">
+            <summary>EF.SOD - Document Security Object</summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.EAC.DG.COM">
+            <summary>EF.COM - Common information</summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.EAC.DG.CVCA">
+            <summary>EF.CVCA - Name of CVCA</summary>
+        </member>
+        <member name="T:CIE.MRTD.SDK.EAC.EAC">
+            <summary>
+            I metodi della classe EAC permettono di effettuare le operazioni di autenticazione e di leggere i data group di un MRTD
+            </summary>
+        </member>
+        <member name="T:CIE.MRTD.SDK.EAC.EAC.SignDelegate">
+            <summary>
+            Delegate chiamata dalla classe EAC per effettuare la firma dell'Inspection System 
+            </summary>
+            <param name="toSign">Dati da firmare (challenge e dati statici o dinamici)</param>
+            <returns>Response firmata trmite la chiave privata dell'IS</returns>
+        </member>
+        <member name="E:CIE.MRTD.SDK.EAC.EAC.feedBack">
+            <summary>
+            Feedback fornito dalla libreria sulle fasi di avanzamento delle operazioni
+            </summary>
+        </member>
+        <member name="M:CIE.MRTD.SDK.EAC.EAC.#ctor(CIE.MRTD.SDK.PCSC.SmartCard)">
+            <summary>
+            Costruttore dell'oggetto EAC. 
+            </summary>
+            <param name="sc">Un oggetto smart card connesso ad un MRTD a cui verranno inviati i comandi di autenticazione e lettura</param>
+        </member>
+        <member name="P:CIE.MRTD.SDK.EAC.EAC.DG">
+            <summary>
+            Dictionary contenente i DG letti dal chip
+            </summary>
+        </member>
+        <member name="M:CIE.MRTD.SDK.EAC.EAC.IsSAC">
+            <summary>
+            Verifica se l'MRTD implementa il protocollo SAC. Prova a selezionare il CardAccess e verifica che questo contenga l'OID
+            di un algoritmo supportato
+            </summary>
+            <returns>true se è possibile affettuare i lprotocollo PACE sull'MRTD, false altrimenti</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.EAC.EAC.PACE(System.String)">
+            <summary>
+            Effettua il protocollo di autenticazione PACE tramite CAN
+            </summary>
+            <param name="CAN">Le 6 cifre del CAN</param>
+        </member>
+        <member name="M:CIE.MRTD.SDK.EAC.EAC.PACE(System.String,System.DateTime,System.String)">
+            <summary>
+            Effettua il protocollo di autenticazione PACE tramite MRZ. Tutti i parametri devono essere passati senza checkDigit
+            </summary>
+            <param name="MRZbirthDate">La data di nascita così come riportata nell'MRZ</param>
+            <param name="expDate">La data di scadenza in formato DateTime</param>
+            <param name="passNumber">Il numero di serie dell'MRTD</param>
+        </member>
+        <member name="M:CIE.MRTD.SDK.EAC.EAC.BAC(System.String,System.DateTime,System.String)">
+            <summary>
+            Effettua il protocollo di autenticazione BAC. Tutti i parametri devono essere passati senza checkDigit
+            </summary>
+            <param name="MRZbirthDate">La data di nascita così come riportata nell'MRZ</param>
+            <param name="expDate">La data di scadenza in formato DateTime</param>
+            <param name="passNumber">Il numero di serie dell'MRTD</param>
+        </member>
+        <member name="M:CIE.MRTD.SDK.EAC.EAC.ReadDG(CIE.MRTD.SDK.EAC.DG)">
+            <summary>
+            Legge un DG dal chip e restituisce il contenuto
+            </summary>
+            <param name="dgNum">DG o file dati da leggere</param>
+            <returns>Il contenuto del file</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.EAC.EAC.ReadDGs">
+            <summary>
+            Legge il contenuto di tutti i DG dell'MRTD
+            </summary>
+        </member>
+        <member name="M:CIE.MRTD.SDK.EAC.EAC.VerificaSOD(System.Byte[],System.Collections.Generic.List{System.Security.Cryptography.X509Certificates.X509Certificate2},System.Boolean)">
+            <summary>
+            Verifica che il SOD e i DG siano integri e non siano stati alterati. Per verificare che i DG siano integri, 
+            devono essere stati letti prima di chiamare la funzione.
+            Se viene passata una lista di CSCA, verifica che il Document Signer sia stato emesso da una di queste.
+            Non verifica lo stato doi revoca del Document Signer
+            </summary>
+            <param name="sod">Il contenuto dell'EF.SOD</param>
+            <param name="CSCA">Una lista di CSCA per verificare la catena del Document Signer</param>
+            <param name="validateOnlyReadDG">Se è true vengono solo validati gli hash dei DG che sono stati letti in precedenza. 
+            Se è false viene ritornata un'eccezione se un DG si trova nel SOD ma non è stato letto</param>
+        </member>
+        <member name="M:CIE.MRTD.SDK.EAC.EAC.TerminalAuthentication(System.Collections.Generic.List{CIE.MRTD.SDK.Crypto.CVCert},CIE.MRTD.SDK.Crypto.CVCert,CIE.MRTD.SDK.EAC.EAC.SignDelegate,CIE.MRTD.SDK.EAC.TABinding)">
+            <summary>
+            Effettua il protocollo di Terminal Authentication. Viene ricostruita la catena di certificati dalla CVCA presente sull'MRTD
+            fino al certificato di inspection system contenuto in IS usando i certificati contenuti nella lista chain.
+            I dati da firmare vengono elaborati tramite il binding specificato e la firma viene effettuata tramite il delegate signFunc.
+            </summary>
+            <param name="chain">La catena di certificati (anche non ordinata) dalla CVCA all'IS</param>
+            <param name="IS">Il certificato di Inspection System</param>
+            <param name="signFunc">La funzione usata per firmare il challenge</param>
+            <param name="binding">Il binding utilizzato</param>
+        </member>
+        <member name="M:CIE.MRTD.SDK.EAC.EAC.ChipAuthentication">
+            <summary>
+            Effettua il protocollo di Chip Authentication usando i parametri di dominio e la chiave pubblica del chip contenuta
+            nel DG14. Il DG14 deve essere letto prima di chiamare questa funzione
+            </summary>
+        </member>
+        <member name="T:CIE.MRTD.SDK.Util.ASN1TagType">
+            <summary>
+            Enumerazione dei tag ASN1 predefiniti
+            </summary>
+        </member>
+        <member name="T:CIE.MRTD.SDK.Util.ASN1TagClasses">
+            <summary>
+            Enumerazione delle classi di tag ASN1
+            </summary>
+        </member>
+        <member name="T:CIE.MRTD.SDK.Util.ASN1Tag">
+            <summary>
+            La classe ASN1Tag definisce un tag ASN1 ed espone metodi per la codifica e la decodifica
+            </summary>
+        </member>
+        <member name="P:CIE.MRTD.SDK.Util.ASN1Tag.StartPos">
+            <summary>
+            Ritorna la posizione di inizio del tag all'interno dello stream da cui è stato letto
+            </summary>
+        </member>
+        <member name="P:CIE.MRTD.SDK.Util.ASN1Tag.EndPos">
+            <summary>
+            Ritorna la posizione di fine del tag all'interno dello stream da cui è stato letto
+            </summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.Util.ASN1Tag.tag">
+            <summary>
+            L'array di bytes che compone il numero del tag
+            </summary>
+        </member>
+        <member name="P:CIE.MRTD.SDK.Util.ASN1Tag.Data">
+            <summary>
+            Ritorna il contenuto del tag, eventualmente codificando la sequenza di  sotto-tag
+            </summary>
+        </member>
+        <member name="F:CIE.MRTD.SDK.Util.ASN1Tag.children">
+            <summary>
+            La lista dei sotto-tag
+            </summary>
+        </member>
+        <member name="P:CIE.MRTD.SDK.Util.ASN1Tag.tagRawNumber">
+            <summary>
+            Ritorna il numero del tag come intero senza segno e senza la conversione dal formato ASN1
+            </summary>
+        </member>
+        <member name="P:CIE.MRTD.SDK.Util.ASN1Tag.tagNumber">
+            <summary>
+            Ritorna il numero del tag come intero senza segno, secondo le regole di conversione del formato ASN1
+            </summary>
+        </member>
+        <member name="P:CIE.MRTD.SDK.Util.ASN1Tag.tagConstructed">
+            <summary>
+            Ritorna true se il numreo del tag include il bit CONSTRUCTED
+            </summary>
+        </member>
+        <member name="P:CIE.MRTD.SDK.Util.ASN1Tag.tagClass">
+            <summary>
+            Ritorna la classe ricavata dal numero del tag
+            </summary>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ASN1Tag.CheckTag(System.UInt32)">
+            <summary>
+            Verifica che il tag corrisponda a quello specificato (sotto forma di intero senza segno raw) e ritorna l'oggetto stesso per costrutti di tipo fluent
+            </summary>
+            <param name="tagCheck">Il numero del tag da verificare</param>
+            <returns>Lo stesso oggetto ASN1Tag</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ASN1Tag.CheckTag(System.Byte[])">
+            <summary>
+            Verifica che il tag corrisponda a quello specificato (sotto forma di array di bytes) e ritorna l'oggetto stesso per costrutti di tipo fluent
+            </summary>
+            <param name="tagCheck">Il numero del tag da verificare</param>
+            <returns>Lo stesso oggetto ASN1Tag</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ASN1Tag.Child(System.Int32)">
+            <summary>
+            Ritorna un sotto-tag dell'oggetto
+            </summary>
+            <param name="tagNum">Il numero di sequenza del sotto-tag (a partire da 0)</param>
+            <returns>L'oggetto che contiene il sotto-tag</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ASN1Tag.Child(System.Int32,System.UInt32)">
+            <summary>
+            Ritorna un sotto-tag dell'oggetto verificando che il suo numero di tag corrisponda a quello specificato (sotto forma di intero senza segno raw)
+            </summary>
+            <param name="tagNum">Il numero di sequenza  del sotto-tag (a partire da 0)</param>
+            <param name="tagCheck">Il numero del sotto-tag da verificare</param>
+            <returns>L'oggetto che contiene il sotto-tag</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ASN1Tag.ChildWithTagId(System.UInt32)">
+            <summary>
+            Ritorna un sotto-tag che abbia il numero di tag (sotto forma di intero senza segno raw) corrispondente a quello specificato
+            </summary>
+            <param name="tagId">Il numero del tag da cercare</param>
+            <returns>L'oggetto che contiene il sotto-tag, o null se non viene trovato</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ASN1Tag.ChildWithTagId(System.Byte[])">
+            <summary>
+            Ritorna un sotto-tag che abbia il numero di tag (sotto forma di array di bytes) corrispondente a quello specificato
+            </summary>
+            <param name="tagId">Il numero del tag da cercare</param>
+            <returns>L'oggetto che contiene il sotto-tag, o null se non viene trovato</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ASN1Tag.Verify(System.Byte[])">
+            <summary>
+            Verifica che il contenuto del tag corrisponda all'array di bytes specficato. Solleva un'eccezione se non corrispondono
+            </summary>
+            <param name="dataCheck">L'array di bytes da verificare</param>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ASN1Tag.Child(System.Int32,System.Byte[])">
+            <summary>
+            Ritorna un sotto-tag dell'oggetto verificando che il suo numero di tag corrisponda a quello specificato (sotto forma di intero senza segno raw)
+            </summary>
+            <param name="tagNum">Il numero di sequenza  del sotto-tag (a partire da 0)</param>
+            <param name="tagCheck">Il numero del sotto-tag da verificare</param>
+            <returns>L'oggetto che contiene il sotto-tag</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ASN1Tag.#ctor(System.UInt32,System.Byte[])">
+            <summary>
+            Crea un tag con l'identificativo e il contenuto specificato
+            </summary>
+            <param name="tag">Il numero del tag sotto forma di intero senza segno raw</param>
+            <param name="data">L'array di bytes che contiene i dati del tag</param>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ASN1Tag.#ctor(System.Byte[],System.Byte[])">
+            <summary>
+            Crea un tag con l'identificativo e il contenuto specificato
+            </summary>
+            <param name="tag">Il numero del tag sotto forma di array di bytes</param>
+            <param name="data">L'array di bytes che contiene i dati del tag</param>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ASN1Tag.#ctor(System.Byte[])">
+            <summary>
+            Crea un tag vuoto con l'identificativo specificato
+            </summary>
+            <param name="tag">Il numero del tag sotto forma di array di bytes</param>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ASN1Tag.#ctor(System.Byte[],System.Collections.Generic.IEnumerable{CIE.MRTD.SDK.Util.ASN1Tag})">
+            <summary>
+            Crea un tag con l'identificativo e il contenuto specificato
+            </summary>
+            <param name="tag">Il numero del tag sotto forma di array di bytes</param>
+            <param name="children">L'elenco di tag che contiene i sotto-tag dell'oggetto</param>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ASN1Tag.#ctor(System.UInt32,System.Collections.Generic.IEnumerable{CIE.MRTD.SDK.Util.ASN1Tag})">
+            <summary>
+            Crea un tag con l'identificativo e il contenuto specificato
+            </summary>
+            <param name="tag">Il numero del tag sotto forma di intero senza segno raw</param>
+            <param name="children">L'elenco di tag che contiene i sotto-tag dell'oggetto</param>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ASN1Tag.ParseLength(System.IO.Stream)">
+            <summary>
+            Legge dallo stream una lunghezza codificata in ASN1 e la restituisce
+            </summary>
+            <param name="s">Lo stream da leggere</param>
+            <returns></returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ASN1Tag.ParseLength(System.Byte[])">
+            <summary>
+            Legge dall'array di bytes una lunghezza codificata in ASN1 e la restituisce
+            </summary>
+            <param name="data">L'array di bytes che contiene la lunghezza</param>
+            <returns></returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ASN1Tag.Parse(System.Byte[],System.Boolean)">
+            <summary>
+            Decodifica il contenuto di un array di bytes in una struttura ASN1
+            </summary>
+            <param name="data">I dati da decodificare</param>
+            <param name="reparse">true per applicare il parse ai tag che hanno contenuto binario ed eventualmente rappresentarli cone struttura ASN1</param>
+            <returns>L'oggetto ASN1Tag di livello più alto della struttura</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ASN1Tag.Parse(System.Byte[])">
+            <summary>
+            Decodifica il contenuto di un array di bytes in una struttura ASN1. Applica il parse ai tag che hanno contenuto binario ed eventualmente li rappresenta cone struttura ASN1
+            </summary>
+            <param name="data">I dati da decodificare</param>
+            <returns>L'oggetto ASN1Tag di livello più alto della struttura</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ASN1Tag.Parse(System.IO.Stream)">
+            <summary>
+            Decodifica il contenuto di uno stream in una struttura ASN1. Applica il parse ai tag che hanno contenuto binario ed eventualmente li rappresenta cone struttura ASN1
+            </summary>
+            <param name="s">Lo stream da decodificare</param>
+            <returns>L'oggetto ASN1Tag di livello più alto della struttura</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ASN1Tag.Parse(System.IO.Stream,System.Boolean)">
+            <summary>
+            Decodifica il contenuto di uno stream in una struttura ASN1
+            </summary>
+            <param name="s">Lo stream da decodificare</param>
+            <param name="reparse">true per applicare il parse ai tag che hanno contenuto binario ed eventualmente rappresentarli cone struttura ASN1</param>
+            <returns>L'oggetto ASN1Tag di livello più alto della struttura</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ASN1Tag.Encode(System.IO.Stream)">
+            <summary>
+            Codifica il tag contenuto nell'oggetto in un uno stream
+            </summary>
+            <param name="s">Lo stream in cui codificare l'oggetto</param>
+        </member>
+        <member name="T:CIE.MRTD.SDK.Util.ByteArray">
+            <summary>
+            La classe ByteArray incapsula un array di bytes, aggiungendo varie funzioni di manipolazione
+            </summary>
+        </member>
+        <member name="P:CIE.MRTD.SDK.Util.ByteArray.ToUInt">
+            <summary>
+            Converte la sequenza di bytes in un intero unsigned
+            </summary>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.IsEqual(System.Byte[])">
+            <summary>
+            Verifica se due array di bytes sono uguali in dimensione e contenuto
+            </summary>
+            <param name="b">Array di bytes con cui confrontare il contenuto dell'oggetto</param>
+            <returns>true le i due array di bytes sono uguali, false altrimenti</returns>
+        </member>
+        <member name="P:CIE.MRTD.SDK.Util.ByteArray.ToBase64">
+            <summary>
+            Converte l'array di bytes in una stringa codificata in Base64
+            </summary>
+        </member>
+        <member name="P:CIE.MRTD.SDK.Util.ByteArray.ToHex">
+            <summary>
+            Converte l'array di bytes in una stringa che contiene il dump dei byte in esadecimale
+            </summary>
+        </member>
+        <member name="P:CIE.MRTD.SDK.Util.ByteArray.ToASCII">
+            <summary>
+            Converte l'array di bytes in una stringa convertendo i bytes in caratteri ASCII
+            </summary>
+        </member>
+        <member name="P:CIE.MRTD.SDK.Util.ByteArray.Size">
+            <summary>
+            Ritorna la lunghezza dell'array di bytes
+            </summary>
+        </member>
+        <member name="P:CIE.MRTD.SDK.Util.ByteArray.Data">
+            <summary>
+            Ritorna l'array di bytes come tipo nativo
+            </summary>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.RemoveBT1(CIE.MRTD.SDK.Util.ByteArray)">
+            <summary>
+            Ritorna un array di bytes ottenuto rimuovendo il padding BT1 dal parametro data. 
+            Il padding BT1 è costituito dalla sequenza di bytes {0x00,0x01,0xff,...,0xff,0x00} anteposta all'array iniziale
+            Solleva un'eccezione se il padding non è corretto
+            </summary>
+            <param name="data">Array di bytes da cui levare il padding</param>
+            <returns>Array di bytes senza il padding</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.PadInt(System.UInt64,System.Int32)">
+            <summary>
+            Restiutisce un array di bytes ottenuto a partire da un intero e anteponendo zeri come padding sino ad arrivare alla lunghezza
+            desiderata
+            </summary>
+            <param name="value">Il valore da cui costruire l'array di bytes</param>
+            <param name="size">La lunghezza desiderata</param>
+            <returns>L'array di bytes ottenuto</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.Fill(System.Int32,System.Byte)">
+            <summary>
+            Returuisce un array di bytes della lunghezza desiderata riempito del valore specificato
+            </summary>
+            <param name="size">La lughezza dell'array di bytes desiderata</param>
+            <param name="content">Il valore a cui sono impostati tutti i bytes dell'array</param>
+            <returns>L'array ottenuto</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.ISORemove(System.Byte[])">
+            <summary>
+            Ritorna un array di bytes ottenuto rimuovendo il padding ISO dal parametro data. 
+            Il padding ISO è costituito dalla sequenza di bytes {0x80,0x00,...,0x00} posposta all'array iniziale
+            Solleva un'eccezione se il padding non è corretto
+            </summary>
+            <param name="data">Array di bytes da cui levare il padding</param>
+            <returns>Array di bytes senza il padding</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.BT1Pad(CIE.MRTD.SDK.Util.ByteArray,System.Int32)">
+            <summary>
+            Aggiunge un padding BT1 all'array di bytes fino ad arrivare alla lunghezza richiesta
+            </summary>
+            <param name="data">L'array di bytes a cui aggiungere il padding</param>
+            <param name="lenght">La lunghezza deiderata</param>
+            <returns>L'array di bytes ottenuto</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.ISOPad(System.Byte[])">
+            <summary>
+            Aggiunge un padding ISO all'array di bytes in modo tale che la lunghezza sia un multiplo di 8 bytes
+            </summary>
+            <param name="data">L'array di bytes a cui aggiungere il padding</param>
+            <returns>L'array di bytes ottenuto</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.Random(System.Int32)">
+            <summary>
+            Imposta l'array di bytes ad una sequenza di bytes casuali della lunghezza desiderata 
+            </summary>
+            <param name="size">La lunghezza dell'array desiderata</param>
+            <returns>L'array di bytes ottenuto</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.Left(System.Int32)">
+            <summary>
+            Ritorna i primi bytes (più a sinistra) dell'array di bytes. Se il numero di bytes richiesto è superiore alla lunghezza
+            dell'array di bytes ritorna una copia dell'array.
+            </summary>
+            <param name="num">Il numero di bytes più a sinistra da estrarre</param>
+            <returns>L'array di bytes ottenuto</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.Reverse">
+            <summary>
+            Ritorna un array di bytes ottenuto scambiando l'ordine dei bytes dell'oggetto
+            </summary>
+            <returns>L'array di bytes ottenuto</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.Sub(System.Int32,System.Int32)">
+            <summary>
+            Ritorna un array di bytes ottenuto estraendo <paramref name="num"/> bytes a partire dall'indice <paramref name="start"/>
+            </summary>
+            <param name="start">L'indice a partire dal quale viene estratto l'array di bytes</param>
+            <param name="num">Il numero di elemeti dell'array di bytes</param>
+            <returns>L'array di bytes ottenuto</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.Sub(System.Int32)">
+            <summary>
+            Ritorna un array di bytes ottenuto estraendo tutti i bytes a partire dall'indice <paramref name="start"/>
+            </summary>
+            <param name="start">L'indice a partire dal quale viene estratto l'array di bytes</param>
+            <returns>L'array di bytes ottenuto</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.Right(System.Int32)">
+            <summary>
+            Ritorna gli ultimi bytes (più a destra) dell'array di bytes. Se il numero di bytes richiesto è superiore alla lunghezza
+            dell'array di bytes ritorna una copia dell'array.
+            </summary>
+            <param name="num">Il numero di bytes più a destra da estrarre</param>
+            <returns>L'array di bytes ottenuto</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.tagToBytes(System.UInt64)">
+            <summary>
+            Ritorna un array di bytes che codifica un tag ASN1 espresso come numero intero unsigned
+            </summary>
+            <param name="value">Il numero di tag da convertire in array di bytes</param>
+            <returns>L'array di bytes ottenuto</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.lenToBytes(System.UInt64)">
+            <summary>
+            Ritorna un array di bytes che codifica la lunghezza di un tag ASN1 espresso come numero intero unsigned
+            </summary>
+            <param name="value">Il numero di tag da convertire in array di bytes</param>
+            <returns>L'array di bytes ottenuto</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.ASN1Tag(System.UInt64)">
+            <summary>
+            Ritorna un array di bytes che contiene la codifica in ASN1 dell'array di bytes contenuto nell'oggetto, inserito all'interno del
+            tag ASN1 specificato
+            </summary>
+            <param name="tag">Il numero del tag che deve contenere l'array di bytes</param>
+            <returns>L'array di bytes ottenuto</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.Append(System.String)">
+            <summary>
+            Ritorna un array di bytes ottenuto concatenando a destra dell'array di bytes contenuto nell'oggetto quello specificato tramite stringa esadecimale
+            </summary>
+            <param name="data">L'array di bytes da concatenare specificato tramite stringa esadecimale</param>
+            <returns>L'array di bytes ottenuto</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.Append(System.Byte)">
+            <summary>
+            Ritorna un array di bytes ottenuto concatenando a destra dell'array di bytes il byte specificato 
+            </summary>
+            <param name="data">Il byte da concatenare</param>
+            <returns>L'array di bytes ottenuto</returns>
+        </member>
+        <member name="P:CIE.MRTD.SDK.Util.ByteArray.Item(System.Int32)">
+            <summary>
+            Ritrena o imposta un elemento dell'array di bytes
+            </summary>
+            <param name="i">L'indice dell'elemento</param>
+            <returns>L'elemento dell'array di bytes</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.Append(System.Byte[])">
+            <summary>
+            Ritorna un array di bytes ottenuto concatenando a destra dell'array di bytes contenuto nell'oggetto quello specificato 
+            </summary>
+            <param name="data">L'array di bytes da concatenare</param>
+            <returns>L'array di bytes ottenuto</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.op_Implicit(System.Numerics.BigInteger)~CIE.MRTD.SDK.Util.ByteArray">
+            <summary>
+            Converte un oggetto di tipo BigInteger in un array di bytes
+            </summary>
+            <param name="bi">L'oggetto BigInteger da convertire</param>
+            <returns>L'array di bytes ottenuto</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.op_Implicit(System.String)~CIE.MRTD.SDK.Util.ByteArray">
+            <summary>
+            Converte una stringa esadecimale in un array di bytes. La strniga deve contenere una sequenza di bytes in formato esadecimale.
+            Es. "10 FF 6E 2B"
+            </summary>
+            <param name="str">La stringa da convertire</param>
+            <returns>L'array di bytes ottenuto</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.op_Implicit(System.Byte[])~CIE.MRTD.SDK.Util.ByteArray">
+            <summary>
+            Converte array di byte nativo in un oggeto di tipo ByteArray
+            </summary>
+            <param name="ba">L'array di bytes da convertire</param>
+            <returns>L'array di bytes ottenuto</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.op_Implicit(CIE.MRTD.SDK.Util.ByteArray)~System.Numerics.BigInteger">
+            <summary>
+            Converte l'array di bytes in un oggetto di tipo BigInteger
+            </summary>
+            <param name="ba">L'array di bytes da convertire</param>
+            <returns>L'oggetto BigInteger ottenuto</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.FromASCII(System.String)">
+            <summary>
+            Converte la stringa di caratteri ASCII in un array di bytes
+            </summary>
+            <param name="data">La string da convertire</param>
+            <returns>L'array di bytes </returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.#ctor">
+            <summary>
+            Riturna un array di bytes vuoto
+            </summary>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.#ctor(System.Byte)">
+            <summary>
+            Riturna un array di bytes contenente solo l'elemento specificato
+            </summary>
+            <param name="data">L'elemento da inserire nell'array</param>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.#ctor(System.Byte[])">
+            <summary>
+            Riturna un array di bytes contenente l'array specificato
+            </summary>
+            <param name="data">L'array di bytes che incapsula l'oggetto</param>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.#ctor(System.String)">
+            <summary>
+            Riturna un array di bytes costruito a partire dalla string specificata che deve contenere una sequenza di bytes in formato esadecimale
+            </summary>
+            <param name="hexData">La stringa contenente una sequenza di bytes in fromato esadecimale</param>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.op_Implicit(CIE.MRTD.SDK.Util.ByteArray)~System.Byte[]">
+            <summary>
+            Converte un oggetto della classe nel tipo arry di bytes nativo
+            </summary>
+            <param name="ba">L'oggetto da convertire</param>
+            <returns>L'array di bytes nativo ottenuto</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.op_Implicit(CIE.MRTD.SDK.Util.ByteArray)~System.IO.MemoryStream">
+            <summary>
+            Costruisce uno stream di memoria il cui contenuto è l'array di bytes 
+            </summary>
+            <param name="ba">L'oggetto da convertire</param>
+            <returns>Lo stream di memoria ottenuto</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.ToString">
+            <summary>
+            Converte l'array di bytes in una stringa contenente la sequenza di bytes in formato esadecimale
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.ReadHexData(System.String)">
+            <summary>
+            Ritorna un array di bytes ottenuto da una stringa contenente una sequenza di bytes in formato esadecimale
+            </summary>
+            <param name="data">La stringa contenente una sequenza di bytes in fromato esadecimale</param>
+            <returns>L'array di bytes ottenuto</returns>
+        </member>
+        <member name="M:CIE.MRTD.SDK.Util.ByteArray.Clone">
+            <summary>
+            Ritorna una copa dell'oggetto
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
