@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="13f75121-b445-4caa-bb1a-010e699e696e" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<introduction>
+			<para>Version 1.0.0.0 - rilasciata il 19/09/2917.
+			</para>
+		</introduction>
+
+		<section>
+			<title>Modifiche di questa release</title>
+			<content>
+
+				<list class="bullet">
+					<listItem>
+						<para>Prima versione dell'SDK</para>
+          </listItem>
+          <listItem>
+            <para>Supporto BAC/PACE (solo DH/GM)</para>
+          </listItem>
+          <listItem>
+            <para>Supporto Chip Authentication</para>
+          </listItem>
+          <listItem>
+            <para>Supporto Terminal Authentication</para>
+          </listItem>
+
+        </list>
+
+			</content>
+		</section>
+
+		<relatedTopics>
+			<link xlink:href="820b12e4-51d4-44b8-bf89-59be84ff3e25" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>
