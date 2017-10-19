@@ -21,9 +21,7 @@ Task("Build")
 Task("Test")
 	.IsDependentOn("Build")
 	.Does(() => {
-		//DotNetCoreTest("./src/tests/Specify.Tests");
-		//DotNetCoreTest("./src/tests/Specify.IntegrationTests");
-		//DotNetCoreTest("./src/Samples/Specify.Samples");
+		//DotNetCoreTest("./Test/Test.csproj");
 	});
 
 Task("Default")
